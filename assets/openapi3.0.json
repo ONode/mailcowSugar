@@ -1,0 +1,3125 @@
+openapi: 3.0.3
+info:
+  title: mailcow API
+  description: >-
+    mailcow is complete e-mailing solution with advanced antispam, antivirus,
+    nice UI and API.
+
+
+    In order to use this API you have to create a API key and add your IP
+    address to the whitelist of allowed IPs this can be done by logging into the
+    Mailcow UI using your admin account, then go to Configuration > Access >
+    Edit administrator details > API. There you will find a collapsed API menu.
+
+
+    **This documentation is in Work In Progress status. It contains only few
+    endpoints.**
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: '{{HOST}}'
+paths:
+  /api/v1/get/domain/{id}/api/v1/get/domain/{id}:
+    get:
+      tags:
+        - Domains
+      summary: Get domains
+      description: You can list all domains existing in system.
+      operationId: getDomains
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/domain/api/v1/add/domain:
+    post:
+      tags:
+        - Domains
+      summary: Create domain
+      description: >-
+        You may create your own domain using this action. It takes a JSON object
+        containing a domain informations.
+      operationId: createDomain
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                aliases:
+                  type: string
+                  example: '400'
+                backupmx:
+                  type: string
+                  example: '0'
+                defquota:
+                  type: string
+                  example: '3072'
+                description:
+                  type: string
+                  example: some decsription
+                domain:
+                  type: string
+                  example: domain.tld
+                mailboxes:
+                  type: string
+                  example: '10'
+                maxquota:
+                  type: string
+                  example: '10240'
+                quota:
+                  type: string
+                  example: '10240'
+                relay_all_recipients:
+                  type: string
+                  example: '0'
+                restart_sogo:
+                  type: string
+                  example: '1'
+                rl_frame:
+                  type: string
+                  example: s
+                rl_value:
+                  type: string
+                  example: '10'
+            examples:
+              Create domain:
+                value:
+                  active: '1'
+                  aliases: '400'
+                  backupmx: '0'
+                  defquota: '3072'
+                  description: some decsription
+                  domain: domain.tld
+                  mailboxes: '10'
+                  maxquota: '10240'
+                  quota: '10240'
+                  relay_all_recipients: '0'
+                  restart_sogo: '1'
+                  rl_frame: s
+                  rl_value: '10'
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/domain/api/v1/edit/domain:
+    post:
+      tags:
+        - Domains
+      summary: Update domain
+      description: >-
+        You can update one or more domains per request. You can also send just
+        attributes you want to change.
+
+        Example: You can add domain names to items list and in attr object just
+        include `"active": "0"` to deactivate domains.
+      operationId: updateDomain
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    active:
+                      type: string
+                      example: '1'
+                    aliases:
+                      type: string
+                      example: '400'
+                    backupmx:
+                      type: string
+                      example: '1'
+                    defquota:
+                      type: string
+                      example: '3072'
+                    description:
+                      type: string
+                      example: domain description
+                    gal:
+                      type: string
+                      example: '1'
+                    mailboxes:
+                      type: string
+                      example: '10'
+                    maxquota:
+                      type: string
+                      example: '10240'
+                    quota:
+                      type: string
+                      example: '10240'
+                    relay_all_recipients:
+                      type: string
+                      example: '0'
+                    relayhost:
+                      type: string
+                      example: '2'
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: domain.tld
+                  example:
+                    - domain.tld
+            examples:
+              Update domain:
+                value:
+                  attr:
+                    active: '1'
+                    aliases: '400'
+                    backupmx: '1'
+                    defquota: '3072'
+                    description: domain description
+                    gal: '1'
+                    mailboxes: '10'
+                    maxquota: '10240'
+                    quota: '10240'
+                    relay_all_recipients: '0'
+                    relayhost: '2'
+                  items:
+                    - domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/domain/api/v1/delete/domain:
+    post:
+      tags:
+        - Domains
+      summary: Delete domain
+      description: You can delete one or more domains.
+      operationId: deleteDomain
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: domain.tld
+              example:
+                - domain.tld
+                - domain2.tld
+            examples:
+              Delete domain:
+                value:
+                  - domain.tld
+                  - domain2.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/policy_wl_domain/{domain}/api/v1/get/policy_wl_domain/{domain}:
+    get:
+      tags:
+        - Domain antispam policies
+      summary: List whitelist domain policy
+      description: You can list all whitelist policies per domain.
+      operationId: listWhitelistDomainPolicy
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain
+  /api/v1/get/policy_bl_domain/{domain}/api/v1/get/policy_bl_domain/{domain}:
+    get:
+      tags:
+        - Domain antispam policies
+      summary: List blacklist domain policy
+      description: You can list all blacklist policies per domain.
+      operationId: listBlacklistDomainPolicy
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain
+  /api/v1/add/domain-policy/api/v1/add/domain-policy:
+    post:
+      tags:
+        - Domain antispam policies
+      summary: Create domain policy
+      description: >-
+        You may create your own domain policy using this action. It takes a JSON
+        object containing a domain informations.
+      operationId: createDomainPolicy
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domain:
+                  type: string
+                  example: domain.tld
+                object_from:
+                  type: string
+                  example: '*@baddomain.tld'
+                object_list:
+                  type: string
+                  example: bl
+            examples:
+              Create domain policy:
+                value:
+                  domain: domain.tld
+                  object_from: '*@baddomain.tld'
+                  object_list: bl
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/domain-policy/api/v1/delete/domain-policy:
+    post:
+      tags:
+        - Domain antispam policies
+      summary: Delete domain policy
+      description: You can delete one o more domain policies.
+      operationId: deleteDomainPolicy
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '1'
+              example:
+                - '1'
+                - '2'
+            examples:
+              Delete domain policy:
+                value:
+                  - '1'
+                  - '2'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/mailbox/{id}/api/v1/get/mailbox/{id}:
+    get:
+      tags:
+        - Mailboxes
+      summary: Get mailboxes
+      description: You can list all mailboxes existing in system.
+      operationId: getMailboxes
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/mailbox/api/v1/add/mailbox:
+    post:
+      tags:
+        - Mailboxes
+      summary: Create mailbox
+      description: >-
+        You may create your own mailbox using this action. It takes a JSON
+        object containing a domain informations.
+      operationId: createMailbox
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          text/plain:
+            examples:
+              Create mailbox:
+                value: |-
+                  {
+                     "local_part": "info",
+                     "domain": "domain.tld",
+                     "name": "Full name",
+                     "quota": "3072",
+                     "password": "atedismonsin",
+                     "password2": "atedismonsin",
+                     "active": "1"
+                     "force_pw_update": "1"
+                     "tls_enforce_in": "1"
+                     "tls_enforce_out": "1"
+
+                  }
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/mailbox/api/v1/edit/mailbox:
+    post:
+      tags:
+        - Mailboxes
+      summary: Update mailbox
+      description: >-
+        You can update one or more mailboxes per request. You can also send just
+        attributes you want to change
+      operationId: updateMailbox
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    active:
+                      type: string
+                      example: '1'
+                    force_pw_update:
+                      type: string
+                      example: '0'
+                    name:
+                      type: string
+                      example: Full name
+                    password:
+                      type: string
+                      example: ''
+                    password2:
+                      type: string
+                      example: ''
+                    quota:
+                      type: string
+                      example: '3072'
+                    sender_acl:
+                      type: array
+                      items:
+                        type: string
+                        example: default
+                      example:
+                        - default
+                        - info@domain2.tld
+                        - domain3.tld
+                        - '*'
+                    sogo_access:
+                      type: string
+                      example: '1'
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: info@domain.tld
+                  example:
+                    - info@domain.tld
+            examples:
+              Update mailbox:
+                value:
+                  attr:
+                    active: '1'
+                    force_pw_update: '0'
+                    name: Full name
+                    password: ''
+                    password2: ''
+                    quota: '3072'
+                    sender_acl:
+                      - default
+                      - info@domain2.tld
+                      - domain3.tld
+                      - '*'
+                    sogo_access: '1'
+                  items:
+                    - info@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/spam-score/api/v1/edit/spam-score:
+    post:
+      tags:
+        - Mailboxes
+      summary: Update mailbox spam score
+      description: Using this endpoint you can set the spam score for certain mailboxes
+      operationId: updateMailboxSpamScore
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  attr:
+                    type: object
+                    properties:
+                      spam_score:
+                        type: string
+                        example: 8,15
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      example: info@domain.tld
+                    example:
+                      - info@domain.tld
+              example:
+                - attr:
+                    spam_score: 8,15
+                  items:
+                    - info@domain.tld
+            examples:
+              Update mailbox spam score:
+                value:
+                  - attr:
+                      spam_score: 8,15
+                    items:
+                      - info@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/user-acl/api/v1/edit/user-acl:
+    post:
+      tags:
+        - Mailboxes
+      summary: Update mailbox ACL
+      description: Using this endpoints its possible to update the ACL's for mailboxes
+      operationId: updateMailboxAcl
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    user_acl:
+                      type: array
+                      items:
+                        type: string
+                        example: spam_alias
+                      example:
+                        - spam_alias
+                        - tls_policy
+                        - spam_score
+                        - spam_policy
+                        - delimiter_action
+                        - syncjobs
+                        - eas_reset
+                        - quarantine
+                        - sogo_profile_reset
+                        - quarantine_attachments
+                        - quarantine_notification
+                        - app_passwds
+                        - pushover
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: info@domain.tld
+                  example:
+                    - info@domain.tld
+            examples:
+              Update mailbox ACL:
+                value:
+                  attr:
+                    user_acl:
+                      - spam_alias
+                      - tls_policy
+                      - spam_score
+                      - spam_policy
+                      - delimiter_action
+                      - syncjobs
+                      - eas_reset
+                      - quarantine
+                      - sogo_profile_reset
+                      - quarantine_attachments
+                      - quarantine_notification
+                      - app_passwds
+                      - pushover
+                  items:
+                    - info@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/pushover/api/v1/edit/pushover:
+    post:
+      tags:
+        - Mailboxes
+      summary: Update Pushover settings
+      description: >-
+        Using this endpoint it is possible to update the pushover settings for
+        mailboxes
+      operationId: updatePushoverSettings
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    active:
+                      type: string
+                      example: '0'
+                    evaluate_x_prio:
+                      type: string
+                      example: '0'
+                    key:
+                      type: string
+                      example: 21e8918e1jksdjcpis712
+                    only_x_prio:
+                      type: string
+                      example: '0'
+                    senders:
+                      type: string
+                      example: ''
+                    senders_regex:
+                      type: string
+                      example: ''
+                    text:
+                      type: string
+                      example: ''
+                    title:
+                      type: string
+                      example: Mail
+                    token:
+                      type: string
+                      example: 9023e2ohcwed27d1idu2
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: info@domain.tld
+                  example:
+                    - info@domain.tld
+            examples:
+              Update Pushover settings:
+                value:
+                  attr:
+                    active: '0'
+                    evaluate_x_prio: '0'
+                    key: 21e8918e1jksdjcpis712
+                    only_x_prio: '0'
+                    senders: ''
+                    senders_regex: ''
+                    text: ''
+                    title: Mail
+                    token: 9023e2ohcwed27d1idu2
+                  items:
+                    - info@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/mailbox/api/v1/delete/mailbox:
+    post:
+      tags:
+        - Mailboxes
+      summary: Delete mailbox
+      description: You can delete one or more mailboxes.
+      operationId: deleteMailbox
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: info@domain.tld
+              example:
+                - info@domain.tld
+                - sales@domain.tld
+            examples:
+              Delete mailbox:
+                value:
+                  - info@domain.tld
+                  - sales@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/quarantine_notification/api/v1/edit/quarantine_notification:
+    post:
+      tags:
+        - Mailboxes
+      summary: Quarantine Notifications
+      description: You can update one or more mailboxes per request.
+      operationId: quarantineNotifications
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    quarantine_notification:
+                      type: string
+                      example: hourly
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: mailbox1@domain.tld
+                  example:
+                    - mailbox1@domain.tld
+                    - mailbox2@domain.tld
+            examples:
+              Quarantine Notifications:
+                value:
+                  attr:
+                    quarantine_notification: hourly
+                  items:
+                    - mailbox1@domain.tld
+                    - mailbox2@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/alias/{id}/api/v1/get/alias/{id}:
+    get:
+      tags:
+        - Aliases
+      summary: Get aliases
+      description: You can list mailbox aliases existing in system.
+      operationId: getAliases
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/alias/api/v1/add/alias:
+    post:
+      tags:
+        - Aliases
+      summary: Create alias
+      description: >-
+        You may create your own mailbox alias using this action. It takes a JSON
+        object containing a domain informations.
+
+        Only one `goto*` option can be used, for ex. if you want learn as spam,
+        then send just `goto_spam = 1` in request body.
+      operationId: createAlias
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                address:
+                  type: string
+                  example: alias@domain.tld
+                goto:
+                  type: string
+                  example: destination@domain.tld
+            examples:
+              Create alias:
+                value:
+                  active: '1'
+                  address: alias@domain.tld
+                  goto: destination@domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/alias/api/v1/edit/alias:
+    post:
+      tags:
+        - Aliases
+      summary: Update alias
+      description: >-
+        You can update one or more aliases per request. You can also send just
+        attributes you want to change
+      operationId: updateAlias
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    active:
+                      type: string
+                      example: '1'
+                    address:
+                      type: string
+                      example: alias@domain.tld
+                    goto:
+                      type: string
+                      example: destination@domain.tld
+                    private_comment:
+                      type: string
+                      example: private comment
+                    public_comment:
+                      type: string
+                      example: public comment
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: '6'
+                  example:
+                    - '6'
+            examples:
+              Update alias:
+                value:
+                  attr:
+                    active: '1'
+                    address: alias@domain.tld
+                    goto: destination@domain.tld
+                    private_comment: private comment
+                    public_comment: public comment
+                  items:
+                    - '6'
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/alias/api/v1/delete/alias:
+    post:
+      tags:
+        - Aliases
+      summary: Delete alias
+      description: You can delete one or more aliases.
+      operationId: deleteAlias
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '6'
+              example:
+                - '6'
+                - '9'
+            examples:
+              Delete alias:
+                value:
+                  - '6'
+                  - '9'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/syncjobs/all/no_log/api/v1/get/syncjobs/all/no_log:
+    get:
+      tags:
+        - Sync jobs
+      summary: Get sync jobs
+      description: You can list all syn jobs existing in system.
+      operationId: getSyncJobs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/add/syncjob/api/v1/add/syncjob:
+    post:
+      tags:
+        - Sync jobs
+      summary: Create sync job
+      description: >-
+        You can create new sync job using this action. It takes a JSON object
+        containing a domain informations.
+      operationId: createSyncJob
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          text/plain:
+            examples:
+              Create sync job:
+                value: |-
+                  {
+                     "username":"mailbox@domain.tld",
+                     "host1":"imap.server.tld",
+                     "port1":"993",
+                     "user1":"username",
+                     "password1":"supersecret",
+                     "enc1":"SSL",
+                     "mins_interval":"20",
+                     "subfolder2":"External",
+                     "maxage":"0",
+                     "maxbytespersecond":"0",
+                     "timeout1":"600",
+                     "timeout2":"600",
+                     "exclude":"(?i)spam|(?i)junk",
+                     "custom_params":"",
+                     "delete2duplicates":"1",
+                     "delete1":"0",
+                     "delete2":"0",
+                     "automap":"1",
+                     "skipcrossduplicates":"0",
+                     "subscribeall":"1",
+                     "active":"1",
+                  }
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/syncjob/api/v1/edit/syncjob:
+    post:
+      tags:
+        - Sync jobs
+      summary: Update sync job
+      description: >-
+        You can update one or more sync jobs per request. You can also send just
+        attributes you want to change.
+      operationId: updateSyncJob
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    active:
+                      type: string
+                      example: '1'
+                    automap:
+                      type: string
+                      example: '1'
+                    custom_params:
+                      type: string
+                      example: ''
+                    delete1:
+                      type: string
+                      example: '0'
+                    delete2:
+                      type: string
+                      example: '0'
+                    delete2duplicates:
+                      type: string
+                      example: '1'
+                    enc1:
+                      type: string
+                      example: SSL
+                    exclude:
+                      type: string
+                      example: (?i)spam|(?i)junk
+                    host1:
+                      type: string
+                      example: imap.server.tld
+                    maxage:
+                      type: string
+                      example: '0'
+                    maxbytespersecond:
+                      type: string
+                      example: '0'
+                    mins_interval:
+                      type: string
+                      example: '20'
+                    password1:
+                      type: string
+                      example: supersecret
+                    port1:
+                      type: string
+                      example: '993'
+                    skipcrossduplicates:
+                      type: string
+                      example: '0'
+                    subfolder2:
+                      type: string
+                      example: External
+                    subscribeall:
+                      type: string
+                      example: '1'
+                    timeout1:
+                      type: string
+                      example: '600'
+                    timeout2:
+                      type: string
+                      example: '600'
+                    user1:
+                      type: string
+                      example: username
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: '1'
+                  example:
+                    - '1'
+            examples:
+              Update sync job:
+                value:
+                  attr:
+                    active: '1'
+                    automap: '1'
+                    custom_params: ''
+                    delete1: '0'
+                    delete2: '0'
+                    delete2duplicates: '1'
+                    enc1: SSL
+                    exclude: (?i)spam|(?i)junk
+                    host1: imap.server.tld
+                    maxage: '0'
+                    maxbytespersecond: '0'
+                    mins_interval: '20'
+                    password1: supersecret
+                    port1: '993'
+                    skipcrossduplicates: '0'
+                    subfolder2: External
+                    subscribeall: '1'
+                    timeout1: '600'
+                    timeout2: '600'
+                    user1: username
+                  items:
+                    - '1'
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/syncjob/api/v1/delete/syncjob:
+    post:
+      tags:
+        - Sync jobs
+      summary: Delete sync job
+      description: You can delete one or more sync jobs.
+      operationId: deleteSyncJob
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '6'
+              example:
+                - '6'
+                - '9'
+            examples:
+              Delete sync job:
+                value:
+                  - '6'
+                  - '9'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/fwdhost/all/api/v1/get/fwdhost/all:
+    get:
+      tags:
+        - Fordwarding Hosts
+      summary: Get Forwarding Hosts
+      description: You can list all Forwarding Hosts in your mailcow.
+      operationId: getForwardingHosts
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/add/fwdhost/api/v1/add/fwdhost:
+    post:
+      tags:
+        - Fordwarding Hosts
+      summary: Add Forward Host
+      description: >-
+        Add a new Forwarding host to mailcow. You can chose to enable or disable
+        spam filtering of incoming emails by specifing `filter_spam` 0 =
+        inactive, 1 = active.
+      operationId: addForwardHost
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter_spam:
+                  type: string
+                  example: '0'
+                hostname:
+                  type: string
+                  example: hosted.mailcow.de
+            examples:
+              Add Forward Host:
+                value:
+                  filter_spam: '0'
+                  hostname: hosted.mailcow.de
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/fwdhost/api/v1/delete/fwdhost:
+    post:
+      tags:
+        - Fordwarding Hosts
+      summary: Delete Forward Host
+      description: >-
+        Using this endpoint you can delete a forwarding host, in order to do so
+        you need to know the IP of the host.
+      operationId: deleteForwardHost
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: 5.1.76.202
+              example:
+                - 5.1.76.202
+                - 2a00:f820:417::202
+            examples:
+              Delete Forward Host:
+                value:
+                  - 5.1.76.202
+                  - 2a00:f820:417::202
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/logs/postfix/{count}/api/v1/get/logs/postfix/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Postfix logs
+      description: >-
+        This Api endpoint lists all Postfix logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getPostfixLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/rspamd-history/{count}/api/v1/get/logs/rspamd-history/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Rspamd logs
+      description: >-
+        This Api endpoint lists all Rspamd logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getRspamdLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/dovecot/{count}/api/v1/get/logs/dovecot/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Dovecot logs
+      description: >-
+        This Api endpoint lists all Dovecot logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getDovecotLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/acme/{count}/api/v1/get/logs/acme/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get ACME logs
+      description: >-
+        This Api endpoint lists all ACME logs from issued Lets Enctypts
+        certificates.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getAcmeLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/sogo/{count}/api/v1/get/logs/sogo/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get SOGo logs
+      description: >-
+        This Api endpoint lists all SOGo logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getSogoLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/watchdog/{count}/api/v1/get/logs/watchdog/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Watchdog logs
+      description: >-
+        This Api endpoint lists all Watchdog logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getWatchdogLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/api/{count}/api/v1/get/logs/api/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Api logs
+      description: >-
+        This Api endpoint lists all Api logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getApiLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/ratelimited/{count}/api/v1/get/logs/ratelimited/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Ratelimit logs
+      description: >-
+        This Api endpoint lists all Ratelimit logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getRatelimitLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/netfilter/{count}/api/v1/get/logs/netfilter/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Netfilter logs
+      description: >-
+        This Api endpoint lists all Netfilter logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getNetfilterLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/logs/autodiscover/{count}/api/v1/get/logs/autodiscover/{count}:
+    get:
+      tags:
+        - Logs
+      summary: Get Autodiscover logs
+      description: >-
+        This Api endpoint lists all Autodiscover logs.
+
+        Tip: You can limit how many logs you want to get by using `/<count>` at
+        the end of the api url.
+      operationId: getAutodiscoverLogs
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+      - name: count
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: Number of logs to return
+  /api/v1/get/mailq/all/api/v1/get/mailq/all:
+    get:
+      tags:
+        - Queue Manager
+      summary: Get Queue
+      description: Get the current mail queue and everything it contains.
+      operationId: getQueue
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/mailq/api/v1/edit/mailq:
+    post:
+      tags:
+        - Queue Manager
+      summary: Flush Queue
+      description: >-
+        Using this API you can flush the current mail queue. This will try to
+        deliver all mails currently in it.
+
+        This API uses the command: `postqueue -f`
+      operationId: flushQueue
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  example: flush
+            examples:
+              Flush Queue:
+                value:
+                  action: flush
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/mailq/api/v1/delete/mailq:
+    post:
+      tags:
+        - Queue Manager
+      summary: Delete Queue
+      description: >-
+        Using this API you can delete the current mail queue. This will delete
+        all mails in it.
+
+        This API uses the command: `postsuper -d`
+      operationId: deleteQueue
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  example: super_delete
+            examples:
+              Delete Queue:
+                value:
+                  action: super_delete
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/quarantine/all/api/v1/get/quarantine/all:
+    get:
+      tags:
+        - Quarantine
+      summary: Get mails in Quarantine
+      description: Get all mails that are currently in Quarantine.
+      operationId: getMailsInQuarantine
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/qitem/api/v1/delete/qitem:
+    post:
+      tags:
+        - Quarantine
+      summary: Delete mails in Quarantine
+      description: >-
+        Using this endpoint you can delete a email from quarantine, for this you
+        have to know its ID. You can get the ID using the GET method.
+      operationId: deleteMailsInQuarantine
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '33'
+              example:
+                - '33'
+            examples:
+              Delete mails in Quarantine:
+                value:
+                  - '33'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/fail2ban/api/v1/get/fail2ban:
+    get:
+      tags:
+        - Fail2Ban
+      summary: Get Fail2Ban Config
+      description: Gets the current Fail2Ban configuration.
+      operationId: getFail2banConfig
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/fail2ban/api/v1/edit/fail2ban:
+    post:
+      tags:
+        - Fail2Ban
+      summary: Edit Fail2Ban
+      description: >-
+        Using this endpoint you can edit the Fail2Ban config and black or
+        whitelist new ips.
+      operationId: editFail2ban
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: object
+                  properties:
+                    ban_time:
+                      type: string
+                      example: '86400'
+                    blacklist:
+                      type: string
+                      example: 10.100.6.5/32,10.100.8.4/32
+                    max_attempts:
+                      type: string
+                      example: '5'
+                    netban_ipv4:
+                      type: string
+                      example: '24'
+                    netban_ipv6:
+                      type: string
+                      example: '64'
+                    retry_window:
+                      type: string
+                      example: '600'
+                    whitelist:
+                      type: string
+                      example: mailcow.tld
+                items:
+                  type: array
+                  items:
+                    type: string
+                    example: none
+                  example:
+                    - none
+            examples:
+              Edit Fail2Ban:
+                value:
+                  attr:
+                    ban_time: '86400'
+                    blacklist: 10.100.6.5/32,10.100.8.4/32
+                    max_attempts: '5'
+                    netban_ipv4: '24'
+                    netban_ipv6: '64'
+                    retry_window: '600'
+                    whitelist: mailcow.tld
+                  items:
+                    - none
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/dkim/{domain}/api/v1/get/dkim/{domain}:
+    get:
+      tags:
+        - DKIM
+      summary: Get DKIM Key
+      description: >-
+        Using this endpoint you can get the DKIM public key for a specific
+        domain.
+      operationId: getDkimKey
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain
+  /api/v1/add/dkim/api/v1/add/dkim:
+    post:
+      tags:
+        - DKIM
+      summary: Generate DKIM Key
+      description: Using this endpoint you can generate new DKIM keys.
+      operationId: generateDkimKey
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dkim_selector:
+                  type: string
+                  example: dkim
+                domains:
+                  type: string
+                  example: mailcow.tld
+                key_size:
+                  type: string
+                  example: '2048'
+            examples:
+              Generate DKIM Key:
+                value:
+                  dkim_selector: dkim
+                  domains: mailcow.tld
+                  key_size: '2048'
+      responses:
+        '200':
+          description: ''
+  /api/v1/add/dkim_duplicate/api/v1/add/dkim_duplicate:
+    post:
+      tags:
+        - DKIM
+      summary: Duplicate DKIM Key
+      description: Using this endpoint you can duplicate the DKIM Key of one domain.
+      operationId: duplicateDkimKey
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                from_domain:
+                  type: string
+                  example: mailcow.tld
+                to_domain:
+                  type: string
+                  example: awesomecow.tld
+            examples:
+              Duplicate DKIM Key:
+                value:
+                  from_domain: mailcow.tld
+                  to_domain: awesomecow.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/dkim/api/v1/delete/dkim:
+    post:
+      tags:
+        - DKIM
+      summary: Delete DKIM Key
+      description: Using this endpoint a existing DKIM Key can be deleted
+      operationId: deleteDkimKey
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: mailcow.tld
+              example:
+                - mailcow.tld
+            examples:
+              Delete DKIM Key:
+                value:
+                  - mailcow.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/domain-admin/all/api/v1/get/domain-admin/all:
+    get:
+      tags:
+        - Domain admin
+      summary: Get Domain Admins
+      description: Get Domain Admins
+      operationId: getDomainAdmins
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/add/domain-admin/api/v1/add/domain-admin:
+    post:
+      tags:
+        - Domain admin
+      summary: Create Domain Admin user
+      description: >-
+        Using this endpoint you can create a new Domain Admin user. This user
+        has full control over a domain, and can create new mailboxes and
+        aliases.
+      operationId: createDomainAdminUser
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                domains:
+                  type: string
+                  example: mailcow.tld
+                password:
+                  type: string
+                  example: supersecurepw
+                password2:
+                  type: string
+                  example: supersecurepw
+                username:
+                  type: string
+                  example: testadmin
+            examples:
+              Create Domain Admin user:
+                value:
+                  active: '1'
+                  domains: mailcow.tld
+                  password: supersecurepw
+                  password2: supersecurepw
+                  username: testadmin
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/domain-admin/api/v1/delete/domain-admin:
+    post:
+      tags:
+        - Domain admin
+      summary: Delete Domain Admin
+      description: Using this endpoint a existing Domain Admin user can be deleted.
+      operationId: deleteDomainAdmin
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: testadmin
+              example:
+                - testadmin
+            examples:
+              Delete Domain Admin:
+                value:
+                  - testadmin
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/bcc/{id}/api/v1/get/bcc/{id}:
+    get:
+      tags:
+        - Address Rewriting
+      summary: Get BCC Map
+      description: Using this endpoint you can get all BCC maps.
+      operationId: getBccMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/bcc/api/v1/add/bcc:
+    post:
+      tags:
+        - Address Rewriting
+      summary: Create BCC Map
+      description: >-
+        Using this endpoint you can create a BCC map to forward all mails via a
+        bcc for a given domain.
+      operationId: createBccMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                bcc_dest:
+                  type: string
+                  example: bcc@awesomecow.tld
+                local_dest:
+                  type: string
+                  example: mailcow.tld
+                type:
+                  type: string
+                  example: sender
+            examples:
+              Create BCC Map:
+                value:
+                  active: '1'
+                  bcc_dest: bcc@awesomecow.tld
+                  local_dest: mailcow.tld
+                  type: sender
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/bcc/api/v1/delete/bcc:
+    post:
+      tags:
+        - Address Rewriting
+      summary: Delete BCC Map
+      description: >-
+        Using this endpoint you can delete a BCC map, for this you have to know
+        its ID. You can get the ID using the GET method.
+      operationId: deleteBccMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '3'
+              example:
+                - '3'
+            examples:
+              Delete BCC Map:
+                value:
+                  - '3'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/recipient_map/{id}/api/v1/get/recipient_map/{id}:
+    get:
+      tags:
+        - Address Rewriting
+      summary: Get Recipient Map
+      description: Using this endpoint you can get all recipient maps.
+      operationId: getRecipientMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/recipient_map/api/v1/add/recipient_map:
+    post:
+      tags:
+        - Address Rewriting
+      summary: Create Recipient Map
+      description: >-
+        Using this endpoint you can create a recipient map to forward all mails
+        from one email address to another.
+      operationId: createRecipientMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                recipient_map_new:
+                  type: string
+                  example: target@mailcow.tld
+                recipient_map_old:
+                  type: string
+                  example: recipient@mailcow.tld
+            examples:
+              Create Recipient Map:
+                value:
+                  active: '1'
+                  recipient_map_new: target@mailcow.tld
+                  recipient_map_old: recipient@mailcow.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/recipient_map/api/v1/delete/recipient_map:
+    post:
+      tags:
+        - Address Rewriting
+      summary: Delete Recipient Map
+      description: >-
+        Using this endpoint you can delete a recipient map, for this you have to
+        know its ID. You can get the ID using the GET method.
+      operationId: deleteRecipientMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '1'
+              example:
+                - '1'
+            examples:
+              Delete Recipient Map:
+                value:
+                  - '1'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/tls-policy-map/{id}/api/v1/get/tls-policy-map/{id}:
+    get:
+      tags:
+        - Outgoing TLS Policy Map Overrides
+      summary: Get TLS Policy Map
+      description: Using this endpoint you can get all TLS policy map override maps.
+      operationId: getTlsPolicyMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/tls-policy-map/api/v1/add/tls-policy-map:
+    post:
+      tags:
+        - Outgoing TLS Policy Map Overrides
+      summary: Create TLS Policy Map
+      description: Using this endpoint you can create a TLS policy map override.
+      operationId: createTlsPolicyMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                dest:
+                  type: string
+                  example: mailcow.tld
+                parameters:
+                  type: string
+                  example: ''
+                policy:
+                  type: string
+                  example: encrypt
+            examples:
+              Create TLS Policy Map:
+                value:
+                  active: '1'
+                  dest: mailcow.tld
+                  parameters: ''
+                  policy: encrypt
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/tls-policy-map/api/v1/delete/tls-policy-map:
+    post:
+      tags:
+        - Outgoing TLS Policy Map Overrides
+      summary: Delete TLS Policy Map
+      description: >-
+        Using this endpoint you can delete a TLS Policy Map, for this you have
+        to know its ID. You can get the ID using the GET method.
+      operationId: deleteTlsPolicyMap
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '3'
+              example:
+                - '3'
+            examples:
+              Delete TLS Policy Map:
+                value:
+                  - '3'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/oauth2-client/{id}/api/v1/get/oauth2-client/{id}:
+    get:
+      tags:
+        - oAuth Clients
+      summary: Get oAuth Clients
+      description: Using this endpoint you can get all oAuth clients.
+      operationId: getOauthClients
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/oauth2-client/api/v1/add/oauth2-client:
+    post:
+      tags:
+        - oAuth Clients
+      summary: Create oAuth Client
+      description: Using this endpoint you can create a oAuth clients.
+      operationId: createOauthClient
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                redirect_uri:
+                  type: string
+                  example: https://mailcow.tld
+            examples:
+              Create oAuth Client:
+                value:
+                  redirect_uri: https://mailcow.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/oauth2-client/api/v1/delete/oauth2-client:
+    post:
+      tags:
+        - oAuth Clients
+      summary: Delete oAuth Client
+      description: >-
+        Using this endpoint you can delete a oAuth client, for this you have to
+        know its ID. You can get the ID using the GET method.
+      operationId: deleteOauthClient
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '3'
+              example:
+                - '3'
+            examples:
+              Delete oAuth Client:
+                value:
+                  - '3'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/relayhost/{id}/api/v1/get/relayhost/{id}:
+    get:
+      tags:
+        - Routing
+      summary: Get Sender-Dependent Transports
+      description: Using this endpoint you can get all Sender-Dependent Transports.
+      operationId: getSenderDependentTransports
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/relayhost/api/v1/add/relayhost:
+    post:
+      tags:
+        - Routing
+      summary: Create Sender-Dependent Transports
+      description: Using this endpoint you can create Sender-Dependent Transports.
+      operationId: createSenderDependentTransports
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hostname:
+                  type: string
+                  example: mailcow.tld:25
+                password:
+                  type: string
+                  example: supersecurepassword
+                username:
+                  type: string
+                  example: testuser
+            examples:
+              Create Sender-Dependent Transports:
+                value:
+                  hostname: mailcow.tld:25
+                  password: supersecurepassword
+                  username: testuser
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/relayhost/api/v1/delete/relayhost:
+    post:
+      tags:
+        - Routing
+      summary: Delete Sender-Dependent Transports
+      description: >-
+        Using this endpoint you can delete a Sender-Dependent Transport, for
+        this you have to know its ID. You can get the ID using the GET method.
+      operationId: deleteSenderDependentTransports
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '1'
+              example:
+                - '1'
+            examples:
+              Delete Sender-Dependent Transports:
+                value:
+                  - '1'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/transport/{id}/api/v1/get/transport/{id}:
+    get:
+      tags:
+        - Routing
+      summary: Get Transport Maps
+      description: Using this endpoint you can get all Transport Maps.
+      operationId: getTransportMaps
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: all
+        description: id of entry you want to get
+  /api/v1/add/transport/all/api/v1/add/transport/all:
+    post:
+      tags:
+        - Routing
+      summary: Create Transport Maps
+      description: Using this endpoint you can create Sender-Dependent Transports.
+      operationId: createTransportMaps
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                destination:
+                  type: string
+                  example: example.org
+                nexthop:
+                  type: string
+                  example: host:25
+                password:
+                  type: string
+                  example: supersecurepw
+                username:
+                  type: string
+                  example: testuser
+            examples:
+              Create Transport Maps:
+                value:
+                  active: '1'
+                  destination: example.org
+                  nexthop: host:25
+                  password: supersecurepw
+                  username: testuser
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/transport/api/v1/delete/transport:
+    post:
+      tags:
+        - Routing
+      summary: Delete Transport Maps
+      description: >-
+        Using this endpoint you can delete a Transport Maps, for this you have
+        to know its ID. You can get the ID using the GET method.
+      operationId: deleteTransportMaps
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '1'
+              example:
+                - '1'
+            examples:
+              Delete Transport Maps:
+                value:
+                  - '1'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/resource/all/api/v1/get/resource/all:
+    get:
+      tags:
+        - Resources
+      summary: Get Resources
+      description: Using this endpoint you can get all Resources.
+      operationId: getResources
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/add/resource/api/v1/add/resource:
+    post:
+      tags:
+        - Resources
+      summary: Create Resources
+      description: Using this endpoint you can create Resources.
+      operationId: createResources
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: string
+                  example: '1'
+                description:
+                  type: string
+                  example: test
+                domain:
+                  type: string
+                  example: mailcow.tld
+                kind:
+                  type: string
+                  example: location
+                multiple_bookings:
+                  type: string
+                  example: '0'
+                multiple_bookings_custom:
+                  type: string
+                  example: ''
+                multiple_bookings_select:
+                  type: string
+                  example: '0'
+            examples:
+              Create Resources:
+                value:
+                  active: '1'
+                  description: test
+                  domain: mailcow.tld
+                  kind: location
+                  multiple_bookings: '0'
+                  multiple_bookings_custom: ''
+                  multiple_bookings_select: '0'
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/resource/api/v1/delete/resource:
+    post:
+      tags:
+        - Resources
+      summary: Delete Resources
+      description: >-
+        Using this endpoint you can delete a Resources, for this you have to
+        know its ID. You can get the ID using the GET method.
+      operationId: deleteResources
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: test@mailcow.tld
+              example:
+                - test@mailcow.tld
+            examples:
+              Delete Resources:
+                value:
+                  - test@mailcow.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/app-passwd/all/{mailbox}/api/v1/get/app-passwd/all/{mailbox}:
+    get:
+      tags:
+        - App Passwords
+      summary: Get App Password
+      description: >-
+        Using this endpoint you can get all app passwords from a specific
+        mailbox.
+      operationId: getAppPassword
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: mailbox
+        in: path
+        required: true
+        schema:
+          type: string
+          example: hello@mailcow.email
+        description: mailbox of entry you want to get
+      - name: mailbox
+        in: path
+        required: true
+        schema:
+          type: string
+          example: hello@mailcow.email
+        description: mailbox of entry you want to get
+  /api/v1/add/app-passwd/api/v1/add/app-passwd:
+    post:
+      tags:
+        - App Passwords
+      summary: Create App Password
+      description: >-
+        Using this endpoint you can create a new app password for a specific
+        mailbox.
+      operationId: createAppPassword
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          text/plain:
+            examples:
+              Create App Password:
+                value: |-
+                  {
+                    "username": "hello@mailcow.email"
+                    "app_name": "emclient",
+                    "app_passwd": "keyleudecticidechothistishownsan31",
+                    "app_passwd2": "keyleudecticidechothistishownsan31",
+                    "active": "1"
+                  }
+      responses:
+        '200':
+          description: ''
+  /api/v1/delete/app-passwd/api/v1/delete/app-passwd:
+    post:
+      tags:
+        - App Passwords
+      summary: Delete App Password
+      description: Using this endpoint you can delete a single app password.
+      operationId: deleteAppPassword
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                example: '1'
+              example:
+                - '1'
+            examples:
+              Delete App Password:
+                value:
+                  - '1'
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/status/containers/api/v1/get/status/containers:
+    get:
+      tags:
+        - status
+      summary: Get container status
+      description: >-
+        Using this endpoint you can get the status of all containers and when
+        hey where started and a few other details.
+      operationId: getContainerStatus
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/status/vmail/api/v1/get/status/vmail:
+    get:
+      tags:
+        - status
+      summary: Get vmail status
+      description: >-
+        Using this endpoint you can get the status of the vmail and the amount
+        of used storage.
+      operationId: getVmailStatus
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/status/solr/api/v1/get/status/solr:
+    get:
+      tags:
+        - status
+      summary: Get solr status
+      description: >-
+        Using this endpoint you can get the status of all containers and when
+        hey where started and a few other details.
+      operationId: getSolrStatus
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+  /api/v1/get/rl-mbox/{mailbox}/api/v1/get/rl-mbox/{mailbox}:
+    get:
+      tags:
+        - Ratelimits
+      summary: Get Mailbox Ratelimits
+      description: >-
+        Using this endpoint you can get the ratelimits for a certain mailbox.
+        You can use all for all mailboxes.
+      operationId: getMailboxRatelimits
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: mailbox
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of mailbox or all
+      - name: mailbox
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of mailbox or all
+  /api/v1/get/rl-domain/{domain}/api/v1/get/rl-domain/{domain}:
+    get:
+      tags:
+        - Ratelimits
+      summary: Get Domain Ratelimits
+      description: >-
+        Using this endpoint you can get the ratelimits for a certain mailbox.
+        You can use all for all mailboxes.
+      operationId: getDomainRatelimits
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain or all
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+        description: name of domain or all
+  /api/v1/edit/rl-domain//api/v1/edit/rl-domain:
+    post:
+      tags:
+        - Ratelimits
+      summary: Edit Domain Ratelimits
+      description: >-
+        Using this endpoint you can edit the ratelimit of one or multiple
+        domains
+      operationId: editDomainRatelimits
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  attr:
+                    type: object
+                    properties:
+                      rl_frame:
+                        type: string
+                        example: h
+                      rl_vlaue:
+                        type: string
+                        example: '10'
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      example: domain.tld
+                    example:
+                      - domain.tld
+              example:
+                - attr:
+                    rl_frame: h
+                    rl_vlaue: '10'
+                  items:
+                    - domain.tld
+            examples:
+              Edit Domain Ratelimits:
+                value:
+                  - attr:
+                      rl_frame: h
+                      rl_vlaue: '10'
+                    items:
+                      - domain.tld
+      responses:
+        '200':
+          description: ''
+  /api/v1/edit/rl-mbox//api/v1/edit/rl-mbox:
+    post:
+      tags:
+        - Ratelimits
+      summary: Edit Mailbox Ratelimits
+      description: >-
+        Using this endpoint you can edit the ratelimit of one or multiple
+        mailboxes
+      operationId: editMailboxRatelimits
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: api-key-string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  attr:
+                    type: object
+                    properties:
+                      rl_frame:
+                        type: string
+                        example: h
+                      rl_vlaue:
+                        type: string
+                        example: '10'
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      example: info@domain.tld
+                    example:
+                      - info@domain.tld
+              example:
+                - attr:
+                    rl_frame: h
+                    rl_vlaue: '10'
+                  items:
+                    - info@domain.tld
+            examples:
+              Edit Mailbox Ratelimits:
+                value:
+                  - attr:
+                      rl_frame: h
+                      rl_vlaue: '10'
+                    items:
+                      - info@domain.tld
+      responses:
+        '200':
+          description: ''
+tags:
+  - name: Domains
+  - name: Domain antispam policies
+    description: You can create antispam whitelist and blacklist policies
+  - name: Mailboxes
+  - name: Aliases
+  - name: Sync jobs
+  - name: Fordwarding Hosts
+  - name: Logs
+  - name: Queue Manager
+  - name: Quarantine
+  - name: Fail2Ban
+  - name: DKIM
+  - name: Domain admin
+  - name: Address Rewriting
+  - name: Outgoing TLS Policy Map Overrides
+  - name: oAuth Clients
+  - name: Routing
+  - name: Resources
+  - name: App Passwords
+  - name: status
+  - name: Ratelimits

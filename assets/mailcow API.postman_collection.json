@@ -1,0 +1,4108 @@
+{
+	"info": {
+		"_postman_id": "8d92cf0b-9674-4e3e-8c26-82b9ac8ebbb4",
+		"name": "mailcow API",
+		"description": "mailcow is complete e-mailing solution with advanced antispam, antivirus, nice UI and API.\n\nIn order to use this API you have to create a API key and add your IP address to the whitelist of allowed IPs this can be done by logging into the Mailcow UI using your admin account, then go to Configuration > Access > Edit administrator details > API. There you will find a collapsed API menu.\n\n**This documentation is in Work In Progress status. It contains only few endpoints.**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2597586",
+		"_collection_link": "https://morelab.postman.co/workspace/hackspace~88cfc3ab-9ec9-480b-b576-c1d1d65bb01b/collection/2597586-8d92cf0b-9674-4e3e-8c26-82b9ac8ebbb4?action=share&source=collection_link&creator=2597586"
+	},
+	"item": [
+		{
+			"name": "Domains",
+			"item": [
+				{
+					"name": "Get domains",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "b6617b41-5de1-4214-98a2-1b1a322f2d0d"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "82432298-8fc4-4992-acac-f8fea8d8b817"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "8098650b-dfe8-4999-8e74-72c927cfb2a9"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/domain/:id/api/v1/get/domain/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"domain",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"domain",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "419d6d53-78b7-41ab-86ec-0dcf96f1b3c7"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "419d6d53-78b7-41ab-86ec-0dcf96f1b3c7"
+								}
+							]
+						},
+						"description": "You can list all domains existing in system."
+					},
+					"response": []
+				},
+				{
+					"name": "Create domain",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "401bd2fc-2119-4242-b813-a80598d08446"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "10c8b34a-8ddd-48f5-a105-58e8e9cac9cf"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "6b26ffd3-e89b-4992-a5d2-ec97cb8a7464"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"domain\":\"domain.tld\",\n   \"description\":\"some decsription\",\n   \"aliases\":\"400\",\n   \"mailboxes\":\"10\",\n   \"defquota\":\"3072\",\n   \"maxquota\":\"10240\",\n   \"quota\":\"10240\",\n   \"active\":\"1\",\n   \"rl_value\":\"10\",\n   \"rl_frame\":\"s\",\n   \"backupmx\":\"0\",\n   \"relay_all_recipients\":\"0\",\n   \"restart_sogo\":\"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/domain/api/v1/add/domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"domain",
+								"api",
+								"v1",
+								"add",
+								"domain"
+							]
+						},
+						"description": "You may create your own domain using this action. It takes a JSON object containing a domain informations."
+					},
+					"response": []
+				},
+				{
+					"name": "Update domain",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "380dabb4-d773-4c45-aa88-74e8e4ce9090"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "a884ea59-30bd-4f8a-b823-53c3ec03ff4b"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "7951f935-89fd-4ca3-8d3c-e3909c0623be"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"items\":[\n      \"domain.tld\"\n   ],\n   \"attr\":{\n      \"description\":\"domain description\",\n      \"aliases\":\"400\",\n      \"mailboxes\":\"10\",\n      \"defquota\":\"3072\",\n      \"maxquota\":\"10240\",\n      \"quota\":\"10240\",\n      \"active\":\"1\",\n      \"gal\":\"1\",\n      \"relayhost\":\"2\",\n      \"backupmx\":\"1\",\n      \"relay_all_recipients\":\"0\"\n   }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/domain/api/v1/edit/domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"domain",
+								"api",
+								"v1",
+								"edit",
+								"domain"
+							]
+						},
+						"description": "You can update one or more domains per request. You can also send just attributes you want to change.\nExample: You can add domain names to items list and in attr object just include `\"active\": \"0\"` to deactivate domains."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete domain",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "1053d72e-7a42-41e8-b701-5c185c7562fc"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "b11a65c5-93a6-4acd-bea9-071abcde1771"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "ce3e0669-ad36-45a7-990f-cee87dceb757"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"domain.tld\",\n    \"domain2.tld\"\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/domain/api/v1/delete/domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"domain",
+								"api",
+								"v1",
+								"delete",
+								"domain"
+							]
+						},
+						"description": "You can delete one or more domains."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Domain antispam policies",
+			"item": [
+				{
+					"name": "List whitelist domain policy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "78b31cc7-bc10-4d38-abc9-cb9c1f57b7e2"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "0660bb39-bb70-4520-96c7-8e12c8843d46"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "98741d54-041f-42ae-9fa9-42fdd3f35d0c"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/policy_wl_domain/:domain/api/v1/get/policy_wl_domain/:domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"policy_wl_domain",
+								":domain",
+								"api",
+								"v1",
+								"get",
+								"policy_wl_domain",
+								":domain"
+							],
+							"variable": [
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain",
+									"uuid": "7999eeea-d2dc-45e7-9730-4e42820bf0c0"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain",
+									"uuid": "7999eeea-d2dc-45e7-9730-4e42820bf0c0"
+								}
+							]
+						},
+						"description": "You can list all whitelist policies per domain."
+					},
+					"response": []
+				},
+				{
+					"name": "List blacklist domain policy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "8f791e73-7932-49a0-bbef-fa9a8182870d"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "8a077324-7a92-421b-92bd-6ef14708f657"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "6cc7e7fd-7c2a-4fbe-b677-901abd9b6e6b"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/policy_bl_domain/:domain/api/v1/get/policy_bl_domain/:domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"policy_bl_domain",
+								":domain",
+								"api",
+								"v1",
+								"get",
+								"policy_bl_domain",
+								":domain"
+							],
+							"variable": [
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain",
+									"uuid": "13b06a78-ce2f-4650-aa14-6742101d7c52"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain",
+									"uuid": "13b06a78-ce2f-4650-aa14-6742101d7c52"
+								}
+							]
+						},
+						"description": "You can list all blacklist policies per domain."
+					},
+					"response": []
+				},
+				{
+					"name": "Create domain policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "bfb7f158-a004-4c09-9287-b007c03174b4"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "fba32708-e228-4297-9e62-1617062c9985"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a639da52-97fd-4c8b-8dbd-b09dd90cac73"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"domain\":\"domain.tld\",\n   \"object_list\":\"bl\",\n   \"object_from\":\"*@baddomain.tld\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/domain-policy/api/v1/add/domain-policy",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"domain-policy",
+								"api",
+								"v1",
+								"add",
+								"domain-policy"
+							]
+						},
+						"description": "You may create your own domain policy using this action. It takes a JSON object containing a domain informations."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete domain policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "e1e35c13-030d-4195-beae-8227f8e31796"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "f549a176-8aa1-4b60-a80f-6a09125a53b0"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "8de940ba-f529-418a-9169-f16555908ae5"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"1\",\n    \"2\"\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/domain-policy/api/v1/delete/domain-policy",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"domain-policy",
+								"api",
+								"v1",
+								"delete",
+								"domain-policy"
+							]
+						},
+						"description": "You can delete one o more domain policies."
+					},
+					"response": []
+				}
+			],
+			"description": "You can create antispam whitelist and blacklist policies"
+		},
+		{
+			"name": "Mailboxes",
+			"item": [
+				{
+					"name": "Get mailboxes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "63ed6139-058b-4e28-a68e-7b9482cbbdf0"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "dccae19b-7732-4434-8dee-655110b83c1a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "5ac0fa36-2ae4-4cf1-9776-fb65476d1bad"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/mailbox/:id/api/v1/get/mailbox/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"mailbox",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"mailbox",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "eaa34bf4-b99c-4d04-99bd-3dc28bef8594"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "eaa34bf4-b99c-4d04-99bd-3dc28bef8594"
+								}
+							]
+						},
+						"description": "You can list all mailboxes existing in system."
+					},
+					"response": []
+				},
+				{
+					"name": "Create mailbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "cedc1eb9-fccb-4bda-8872-eb720d208d50"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "8f290af8-8984-4c9b-b715-a73abde9f2bd"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "8d09e39f-a688-44fd-9aab-991e58ee05c9"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"local_part\": \"info\",\n   \"domain\": \"domain.tld\",\n   \"name\": \"Full name\",\n   \"quota\": \"3072\",\n   \"password\": \"atedismonsin\",\n   \"password2\": \"atedismonsin\",\n   \"active\": \"1\"\n   \"force_pw_update\": \"1\"\n   \"tls_enforce_in\": \"1\"\n   \"tls_enforce_out\": \"1\"\n\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/mailbox/api/v1/add/mailbox",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"mailbox",
+								"api",
+								"v1",
+								"add",
+								"mailbox"
+							]
+						},
+						"description": "You may create your own mailbox using this action. It takes a JSON object containing a domain informations."
+					},
+					"response": []
+				},
+				{
+					"name": "Update mailbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "3f5ea467-95d2-42f9-81af-f3ab64211e62"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "c71f4cb6-b879-4065-8be0-6a9bd916c554"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "d2bf10e0-a5c2-41b0-ab6d-a8c92d44f45f"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"items\":[\n      \"info@domain.tld\"\n   ],\n   \"attr\":{\n       \"name\":\"Full name\",\n       \"quota\":\"3072\",\n       \"password\":\"\",\n       \"password2\":\"\",\n       \"active\":\"1\",\n       \"sender_acl\":[\n          \"default\",\n          \"info@domain2.tld\",\n          \"domain3.tld\",\n          \"*\"\n       ],\n       \"force_pw_update\":\"0\",\n       \"sogo_access\":\"1\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/mailbox/api/v1/edit/mailbox",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"mailbox",
+								"api",
+								"v1",
+								"edit",
+								"mailbox"
+							]
+						},
+						"description": "You can update one or more mailboxes per request. You can also send just attributes you want to change"
+					},
+					"response": []
+				},
+				{
+					"name": "Update mailbox spam score",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "5a492597-9f81-46d3-93e3-f2709a7fdc87"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "a03896d4-eda8-483f-9d8d-7b74169ff3df"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a6a41cfd-5405-4cd8-b403-fd034f3a844b"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"items\": [\"info@domain.tld\"],\n    \"attr\": {\n      \"spam_score\": \"8,15\"\n    }\n  }\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/spam-score/api/v1/edit/spam-score",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"spam-score",
+								"api",
+								"v1",
+								"edit",
+								"spam-score"
+							]
+						},
+						"description": "Using this endpoint you can set the spam score for certain mailboxes"
+					},
+					"response": []
+				},
+				{
+					"name": "Update mailbox ACL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "28eef498-3474-4420-9c54-c9f2b63dfc28"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "5892fe89-0e53-4db5-a456-afc2d94e722a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "48824d03-bf50-4f37-a639-788683e5e1f9"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"items\": [\"info@domain.tld\"],\n  \"attr\": {\n    \"user_acl\": [\"spam_alias\",\"tls_policy\",\"spam_score\",\"spam_policy\",\"delimiter_action\",\"syncjobs\",\"eas_reset\",\"quarantine\",\"sogo_profile_reset\",\"quarantine_attachments\",\"quarantine_notification\",\"app_passwds\",\"pushover\"]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/user-acl/api/v1/edit/user-acl",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"user-acl",
+								"api",
+								"v1",
+								"edit",
+								"user-acl"
+							]
+						},
+						"description": "Using this endpoints its possible to update the ACL's for mailboxes"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pushover settings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "752db795-89c9-488b-bcd5-1599e019345c"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "e89b0cd2-00f0-46c3-9a4c-9f8fb7d6927f"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a2c1b6d1-c2d0-4008-a57c-a7a88f8e144c"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"items\": [\"info@domain.tld\"],\n  \"attr\":\n  {\n    \"evaluate_x_prio\": \"0\",\n    \"only_x_prio\": \"0\",\n    \"active\": \"0\",\n    \"token\":\"9023e2ohcwed27d1idu2\",\n    \"key\":\"21e8918e1jksdjcpis712\",\n    \"title\":\"Mail\",\n    \"text\":\"\",\n    \"senders\":\"\",\n    \"senders_regex\":\"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/pushover/api/v1/edit/pushover",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"pushover",
+								"api",
+								"v1",
+								"edit",
+								"pushover"
+							]
+						},
+						"description": "Using this endpoint it is possible to update the pushover settings for mailboxes"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete mailbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "e02264d0-b5c0-4e80-a069-d7bc3f74e35a"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "97baceaf-a35e-473c-ac49-a9c9488e5f3c"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "3cf20f8a-a446-48d6-9592-ae3cec9faf01"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"info@domain.tld\",\n    \"sales@domain.tld\"\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/mailbox/api/v1/delete/mailbox",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"mailbox",
+								"api",
+								"v1",
+								"delete",
+								"mailbox"
+							]
+						},
+						"description": "You can delete one or more mailboxes."
+					},
+					"response": []
+				},
+				{
+					"name": "Quarantine Notifications",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "e07edcb8-9014-4852-8419-be24199bbe88"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "aef0b329-b745-41ba-be46-a3bfd41043e0"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "8566f5bf-7345-4735-9d0b-a0eb6195b370"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"items\":[\n      \"mailbox1@domain.tld\",\n      \"mailbox2@domain.tld\"\n   ],\n   \"attr\":{\n       \"quarantine_notification\":\"hourly\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/quarantine_notification/api/v1/edit/quarantine_notification",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"quarantine_notification",
+								"api",
+								"v1",
+								"edit",
+								"quarantine_notification"
+							]
+						},
+						"description": "You can update one or more mailboxes per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aliases",
+			"item": [
+				{
+					"name": "Get aliases",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "9253dca6-9b27-4c04-b564-193a4fefa8bb"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "83ebc23c-79fe-42d5-b26f-4c15817a2f90"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "626efbde-c93c-41fa-8ba6-02e3b1dddf3b"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/alias/:id/api/v1/get/alias/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"alias",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"alias",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "2d86ac3b-a67e-4b47-90bf-23419717c1da"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "2d86ac3b-a67e-4b47-90bf-23419717c1da"
+								}
+							]
+						},
+						"description": "You can list mailbox aliases existing in system."
+					},
+					"response": []
+				},
+				{
+					"name": "Create alias",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "3dd2543d-c970-4460-884e-c37b6e13e2e1"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "79d8ddff-27e2-4c72-933a-8bfcaf2eb464"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "2ccca394-8d26-43cc-a7cd-df70467156c2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"address\":\"alias@domain.tld\",\n   \"goto\":\"destination@domain.tld\",\n   \"active\":\"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/alias/api/v1/add/alias",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"alias",
+								"api",
+								"v1",
+								"add",
+								"alias"
+							]
+						},
+						"description": "You may create your own mailbox alias using this action. It takes a JSON object containing a domain informations.\nOnly one `goto*` option can be used, for ex. if you want learn as spam, then send just `goto_spam = 1` in request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Update alias",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "8645bd33-6e3a-481b-8565-82fd268f7d44"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "290f29c9-1f9a-487f-a154-88ff0924bffb"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "0e9609ce-59b3-4871-b8df-5c3eb6a7a82c"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"items\":[\n      \"6\"\n   ],\n   \"attr\":{\n       \"address\":\"alias@domain.tld\",\n       \"goto\":\"destination@domain.tld\",\n       \"private_comment\":\"private comment\",\n       \"public_comment\":\"public comment\",\n       \"active\":\"1\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/alias/api/v1/edit/alias",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"alias",
+								"api",
+								"v1",
+								"edit",
+								"alias"
+							]
+						},
+						"description": "You can update one or more aliases per request. You can also send just attributes you want to change"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete alias",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "7e1ff75b-008c-4e35-a1d5-b45869298a7e"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "e0512f29-c27b-4f02-acc3-180a0cd5bbef"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "6b989fba-599d-492e-bcfa-4b1a4bca3175"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"6\",\n    \"9\"\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/alias/api/v1/delete/alias",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"alias",
+								"api",
+								"v1",
+								"delete",
+								"alias"
+							]
+						},
+						"description": "You can delete one or more aliases."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sync jobs",
+			"item": [
+				{
+					"name": "Get sync jobs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "40ef79b7-b47e-4507-b392-e58a65293921"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "1d1d1c73-4910-4148-afc4-61b0815661a9"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "ce09eac2-eadd-4de9-b254-5b06a52fa814"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/syncjobs/all/no_log/api/v1/get/syncjobs/all/no_log",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"syncjobs",
+								"all",
+								"no_log",
+								"api",
+								"v1",
+								"get",
+								"syncjobs",
+								"all",
+								"no_log"
+							]
+						},
+						"description": "You can list all syn jobs existing in system."
+					},
+					"response": []
+				},
+				{
+					"name": "Create sync job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "1e5d05a8-e7bc-48f7-9065-f8021722da0d"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "3eb591de-0a68-42b3-a537-8aa965aca2bf"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "1b789725-2dbe-4e19-b83b-95264a6b5cad"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"username\":\"mailbox@domain.tld\",\n   \"host1\":\"imap.server.tld\",\n   \"port1\":\"993\",\n   \"user1\":\"username\",\n   \"password1\":\"supersecret\",\n   \"enc1\":\"SSL\",\n   \"mins_interval\":\"20\",\n   \"subfolder2\":\"External\",\n   \"maxage\":\"0\",\n   \"maxbytespersecond\":\"0\",\n   \"timeout1\":\"600\",\n   \"timeout2\":\"600\",\n   \"exclude\":\"(?i)spam|(?i)junk\",\n   \"custom_params\":\"\",\n   \"delete2duplicates\":\"1\",\n   \"delete1\":\"0\",\n   \"delete2\":\"0\",\n   \"automap\":\"1\",\n   \"skipcrossduplicates\":\"0\",\n   \"subscribeall\":\"1\",\n   \"active\":\"1\",\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/syncjob/api/v1/add/syncjob",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"syncjob",
+								"api",
+								"v1",
+								"add",
+								"syncjob"
+							]
+						},
+						"description": "You can create new sync job using this action. It takes a JSON object containing a domain informations."
+					},
+					"response": []
+				},
+				{
+					"name": "Update sync job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "928954e1-33af-4f9d-a2a0-8088d624cca8"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "3eaa6c91-8a05-49ed-886b-2781ab0fb249"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "53dae0f1-a207-4d16-935c-afeba48c60bc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"items\":[\n      \"1\"\n   ],\n   \"attr\":{\n       \"delete2duplicates\":\"1\",\n       \"delete1\":\"0\",\n       \"delete2\":\"0\",\n       \"automap\":\"1\",\n       \"skipcrossduplicates\":\"0\",\n       \"active\":\"1\",\n       \"subscribeall\":\"1\",\n       \"host1\":\"imap.server.tld\",\n       \"port1\":\"993\",\n       \"user1\":\"username\",\n       \"password1\":\"supersecret\",\n       \"enc1\":\"SSL\",\n       \"mins_interval\":\"20\",\n       \"subfolder2\":\"External\",\n       \"maxage\":\"0\",\n       \"maxbytespersecond\":\"0\",\n       \"timeout1\":\"600\",\n       \"timeout2\":\"600\",\n       \"exclude\":\"(?i)spam|(?i)junk\",\n       \"custom_params\":\"\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/syncjob/api/v1/edit/syncjob",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"syncjob",
+								"api",
+								"v1",
+								"edit",
+								"syncjob"
+							]
+						},
+						"description": "You can update one or more sync jobs per request. You can also send just attributes you want to change."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete sync job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "33471ff0-737f-4dc8-a4c1-8863252cd56c"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "34e4eb37-1276-4252-9b83-6aee15e5d622"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "65a988ec-f68c-4245-9f38-c4e6dd3c99c1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"6\",\n    \"9\"\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/syncjob/api/v1/delete/syncjob",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"syncjob",
+								"api",
+								"v1",
+								"delete",
+								"syncjob"
+							]
+						},
+						"description": "You can delete one or more sync jobs."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fordwarding Hosts",
+			"item": [
+				{
+					"name": "Get Forwarding Hosts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "39cb5646-ac81-4ea1-81bf-1e80031e4f67"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "9dbad9b6-2da7-4a99-af9a-2eeb96f8ea54"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "06695f16-17ef-4968-aeb9-6035142c903b"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/fwdhost/all/api/v1/get/fwdhost/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"fwdhost",
+								"all",
+								"api",
+								"v1",
+								"get",
+								"fwdhost",
+								"all"
+							]
+						},
+						"description": "You can list all Forwarding Hosts in your mailcow."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Forward Host",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "e6bae70c-5f74-4cf6-bf59-a4d5f4c43d39"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "ae44e253-7667-41f0-ad2f-d346111ec634"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "67ead1fa-eb2e-48ed-bc1b-591a62653f54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hostname\": \"hosted.mailcow.de\",\n    \"filter_spam\": \"0\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/fwdhost/api/v1/add/fwdhost",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"fwdhost",
+								"api",
+								"v1",
+								"add",
+								"fwdhost"
+							]
+						},
+						"description": "Add a new Forwarding host to mailcow. You can chose to enable or disable spam filtering of incoming emails by specifing `filter_spam` 0 = inactive, 1 = active."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Forward Host",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "d97047bd-a872-4a21-add2-656d991100dc"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "17f4a423-9b2a-43a6-90f2-be55971da622"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "1bc9a207-7823-4290-82fb-c12de5854f6a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"5.1.76.202\",\"2a00:f820:417::202\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/fwdhost/api/v1/delete/fwdhost",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"fwdhost",
+								"api",
+								"v1",
+								"delete",
+								"fwdhost"
+							]
+						},
+						"description": "Using this endpoint you can delete a forwarding host, in order to do so you need to know the IP of the host."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "Get Postfix logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "1f1e30a9-f4ee-47de-83a0-33c8fd559596"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "72787d0b-56d2-4335-ace8-6af629fe3ef4"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "b8fe2af5-3851-41f3-85f7-4006afc3d15e"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/postfix/:count/api/v1/get/logs/postfix/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"postfix",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"postfix",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "b4c978f8-47d4-4716-8cb9-fcaf1d6f28c9"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "b4c978f8-47d4-4716-8cb9-fcaf1d6f28c9"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Postfix logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rspamd logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "d3985f21-c8c4-4c64-88e2-f0328c5a35cb"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "60ec1d4a-c074-4ecf-a3f1-c75bb40993f3"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "bea95012-58f3-45e4-9afb-a7b49f2eb605"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/rspamd-history/:count/api/v1/get/logs/rspamd-history/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"rspamd-history",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"rspamd-history",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "6b22bbbe-a372-4957-9e38-47672d17ea88"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "6b22bbbe-a372-4957-9e38-47672d17ea88"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Rspamd logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dovecot logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "b2fd4f6a-12d6-44f1-b4f7-cb1cff06916a"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "7c2c851f-adbc-4e7a-99a8-20a0efeedc12"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "4a2598b3-8426-4e28-ba21-6c248b86690c"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/dovecot/:count/api/v1/get/logs/dovecot/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"dovecot",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"dovecot",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "2e74329c-a4e7-43a3-b997-6634cb3d8ec8"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "2e74329c-a4e7-43a3-b997-6634cb3d8ec8"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Dovecot logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get ACME logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "7617aa6e-2934-4930-8ff1-f24158786e96"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "be05ec60-cfc2-4b71-937a-8cee58b7ea04"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "ae6bef17-d862-4862-ac45-c77aed2e2ba2"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/acme/:count/api/v1/get/logs/acme/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"acme",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"acme",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "93f3fe3f-c7b0-4e5c-9830-b5a146140f36"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "93f3fe3f-c7b0-4e5c-9830-b5a146140f36"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all ACME logs from issued Lets Enctypts certificates.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get SOGo logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "1852ebb0-2473-4775-9b9a-e03750f010be"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "db86163c-bf61-4e65-bf5c-1dad5fb20839"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a248a219-a49d-4721-ab75-1a1b128bbefb"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/sogo/:count/api/v1/get/logs/sogo/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"sogo",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"sogo",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "21efae77-bd09-4ae7-a495-f1e41ab8a0e3"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "21efae77-bd09-4ae7-a495-f1e41ab8a0e3"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all SOGo logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Watchdog logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "c8edb032-5125-410e-9a67-ec294a760dc1"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "7ee1a8ea-c88c-4fdc-9eb5-0a9447711b12"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "87c16711-8658-4344-bb35-6aa7c0015a22"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/watchdog/:count/api/v1/get/logs/watchdog/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"watchdog",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"watchdog",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "16d6a9f2-5bc7-481f-91e9-08709d932205"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "16d6a9f2-5bc7-481f-91e9-08709d932205"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Watchdog logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Api logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "5fca7587-9915-446e-943f-15aeec3f710c"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "deac96b8-ab88-45fc-ab05-78e90bc503c0"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "0e8a3ebf-f6e7-4904-b586-d8fdc9cdb097"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/api/:count/api/v1/get/logs/api/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"api",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"api",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "8db012d6-677f-427f-ad49-c5e0352606ea"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "8db012d6-677f-427f-ad49-c5e0352606ea"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Api logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ratelimit logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "2adb64e5-b265-4d41-aeb2-9865092a7d60"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "41439ef9-3988-4c59-92b1-0f2a17420168"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a0306892-96f3-48bc-894b-b0900cb12166"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/ratelimited/:count/api/v1/get/logs/ratelimited/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"ratelimited",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"ratelimited",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "8201b116-300e-401a-ae56-74b4805b71d9"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "8201b116-300e-401a-ae56-74b4805b71d9"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Ratelimit logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Netfilter logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "2992a115-2264-48b4-a017-2a0965693cbd"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "64938bc9-b935-4104-a1c8-9e0e5247a0fe"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "859dc9d0-74d3-45ea-8ba7-21433b0e09a8"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/netfilter/:count/api/v1/get/logs/netfilter/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"netfilter",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"netfilter",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "c045afd8-a00e-4a65-a03e-5cc9b7c4369e"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "c045afd8-a00e-4a65-a03e-5cc9b7c4369e"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Netfilter logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Autodiscover logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "4639fbfd-4601-4ed9-aeda-dad6944f91be"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "90d7d49b-a6f3-4b1a-8efa-130af2df0e05"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a2c548a7-0163-475c-a77e-93db2180ba46"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/logs/autodiscover/:count/api/v1/get/logs/autodiscover/:count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"autodiscover",
+								":count",
+								"api",
+								"v1",
+								"get",
+								"logs",
+								"autodiscover",
+								":count"
+							],
+							"variable": [
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "f46b1180-a749-4562-b44b-0133bb4c8ea7"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of logs to return",
+									"uuid": "f46b1180-a749-4562-b44b-0133bb4c8ea7"
+								}
+							]
+						},
+						"description": "This Api endpoint lists all Autodiscover logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Queue Manager",
+			"item": [
+				{
+					"name": "Get Queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "f304828b-fd9a-4ca6-bd6a-e15464533d7c"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "3233fe73-e6bb-4668-9d41-8ddc1b634363"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "c99f3937-6f23-453f-942d-485df7e81ba3"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/mailq/all/api/v1/get/mailq/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"mailq",
+								"all",
+								"api",
+								"v1",
+								"get",
+								"mailq",
+								"all"
+							]
+						},
+						"description": "Get the current mail queue and everything it contains."
+					},
+					"response": []
+				},
+				{
+					"name": "Flush Queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "a85b29ae-b0f3-4b00-9f20-b871ddb93554"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "26f4ab93-3b37-40d3-877b-1c77c9a76f2e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "c641aed1-6f81-4c8c-aa0b-f52c929056a3"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"action\":\"flush\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/mailq/api/v1/edit/mailq",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"mailq",
+								"api",
+								"v1",
+								"edit",
+								"mailq"
+							]
+						},
+						"description": "Using this API you can flush the current mail queue. This will try to deliver all mails currently in it.\nThis API uses the command: `postqueue -f`"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "767ece42-6a79-4fea-9743-765e0073d6bc"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "faadee61-0534-4a46-bf5a-76153fb3f962"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "ebc9e120-1eb1-4cc6-80c7-d7b3f44fc36d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\":\"super_delete\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/mailq/api/v1/delete/mailq",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"mailq",
+								"api",
+								"v1",
+								"delete",
+								"mailq"
+							]
+						},
+						"description": "Using this API you can delete the current mail queue. This will delete all mails in it.\nThis API uses the command: `postsuper -d`"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quarantine",
+			"item": [
+				{
+					"name": "Get mails in Quarantine",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "6fc24231-17d4-43b1-9fae-5ae55e4fe91a"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "1cd7c29b-75bb-43aa-ac32-2e8162b3f044"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "ec022853-2d15-49d6-b683-230e7ba423c7"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/quarantine/all/api/v1/get/quarantine/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"quarantine",
+								"all",
+								"api",
+								"v1",
+								"get",
+								"quarantine",
+								"all"
+							]
+						},
+						"description": "Get all mails that are currently in Quarantine."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete mails in Quarantine",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "fb9fd0ef-c834-4e17-b9fe-636630737cd0"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "00eb1fb1-8668-4c08-b5ac-d0d28bc06c1e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "006fe125-dcf6-4dae-b418-5d4cbea9ad6f"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"33\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/qitem/api/v1/delete/qitem",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"qitem",
+								"api",
+								"v1",
+								"delete",
+								"qitem"
+							]
+						},
+						"description": "Using this endpoint you can delete a email from quarantine, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fail2Ban",
+			"item": [
+				{
+					"name": "Get Fail2Ban Config",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "57b405ed-06dc-4496-85c0-2ef67700d224"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "1303c7ee-2717-41b1-933b-e47fe50fb18f"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "4c4f1db0-a4bc-4ec4-8994-596682ad662b"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/fail2ban/api/v1/get/fail2ban",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"fail2ban",
+								"api",
+								"v1",
+								"get",
+								"fail2ban"
+							]
+						},
+						"description": "Gets the current Fail2Ban configuration."
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Fail2Ban",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "6ab09b1f-ab39-4376-8572-2f63a2951e37"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "6ae627ac-4b56-4b88-a1f7-6fa966fc2c2b"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "22eb2249-41b7-4355-ae2d-cdd46277c5fd"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"items\":[\n      \"none\"\n   ],\n  \"attr\": {\n    \"ban_time\": \"86400\",\n    \"max_attempts\": \"5\",\n    \"retry_window\": \"600\",\n    \"netban_ipv4\": \"24\",\n    \"netban_ipv6\": \"64\",\n    \"whitelist\": \"mailcow.tld\",\n    \"blacklist\": \"10.100.6.5/32,10.100.8.4/32\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/fail2ban/api/v1/edit/fail2ban",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"fail2ban",
+								"api",
+								"v1",
+								"edit",
+								"fail2ban"
+							]
+						},
+						"description": "Using this endpoint you can edit the Fail2Ban config and black or whitelist new ips."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DKIM",
+			"item": [
+				{
+					"name": "Get DKIM Key",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "098b1aab-0b4a-4b95-aea6-f43b3d72dcb8"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "20043c60-4b09-4d06-bbc6-b6808c1e214e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "d9865f25-af26-4f63-9e49-bc7f322a9a55"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/dkim/:domain/api/v1/get/dkim/:domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"dkim",
+								":domain",
+								"api",
+								"v1",
+								"get",
+								"dkim",
+								":domain"
+							],
+							"variable": [
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain",
+									"uuid": "51e25df0-bcff-46ba-8793-7e88d3ae24d6"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain",
+									"uuid": "51e25df0-bcff-46ba-8793-7e88d3ae24d6"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get the DKIM public key for a specific domain."
+					},
+					"response": []
+				},
+				{
+					"name": "Generate DKIM Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "125d6ae5-3719-4e1d-b983-0674c6e68a72"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "3e2f8e17-0d8a-4614-bde0-9fab09b8358c"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "5dedba20-6355-40d9-9fcd-df44b930df35"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"domains\":\"mailcow.tld\",\n    \"dkim_selector\":\"dkim\",\n    \"key_size\":\"2048\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/dkim/api/v1/add/dkim",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"dkim",
+								"api",
+								"v1",
+								"add",
+								"dkim"
+							]
+						},
+						"description": "Using this endpoint you can generate new DKIM keys."
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate DKIM Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "9e51e56f-0e51-4f89-9f0e-9edb03053067"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "0de7fa9e-552e-4b72-bb07-cbe1177c78f9"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "542fb470-c2e4-499a-b0a9-ac6f64959b7f"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from_domain\":\"mailcow.tld\",\n    \"to_domain\":\"awesomecow.tld\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/dkim_duplicate/api/v1/add/dkim_duplicate",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"dkim_duplicate",
+								"api",
+								"v1",
+								"add",
+								"dkim_duplicate"
+							]
+						},
+						"description": "Using this endpoint you can duplicate the DKIM Key of one domain."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete DKIM Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "8f2455fc-b5c4-4411-9b70-ef44280c5e54"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "cc15436a-7c71-4a7f-8d9a-6191925e9068"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "18241c63-ca6e-41e4-a193-e81ced6866d1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"mailcow.tld\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/dkim/api/v1/delete/dkim",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"dkim",
+								"api",
+								"v1",
+								"delete",
+								"dkim"
+							]
+						},
+						"description": "Using this endpoint a existing DKIM Key can be deleted"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Domain admin",
+			"item": [
+				{
+					"name": "Get Domain Admins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "bfb7ba29-1881-4a04-97fe-2f2ef1b788d1"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "85b064cf-0e3a-4c54-a123-56e60ec5097e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "7b12dcbc-85e0-490a-831c-ee9ccf96b1fd"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/domain-admin/all/api/v1/get/domain-admin/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"domain-admin",
+								"all",
+								"api",
+								"v1",
+								"get",
+								"domain-admin",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Domain Admin user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "b3862454-3ba2-49b1-ad87-c177a81450fa"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "2f4cce50-9661-42dc-8a1c-1d207d82364a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "0cf236b8-8d02-44a8-a4c3-49e5a49beadf"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testadmin\",\n    \"domains\": \"mailcow.tld\",\n    \"password\": \"supersecurepw\",\n    \"password2\": \"supersecurepw\",\n    \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/domain-admin/api/v1/add/domain-admin",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"domain-admin",
+								"api",
+								"v1",
+								"add",
+								"domain-admin"
+							]
+						},
+						"description": "Using this endpoint you can create a new Domain Admin user. This user has full control over a domain, and can create new mailboxes and aliases."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Domain Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "c40c739f-0915-4e20-b756-92d62964aef5"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "d0254d95-be3d-4408-8d7b-1e5057344ec0"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "2b1e36c9-41db-4c9d-9830-59154ca727d2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"testadmin\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/domain-admin/api/v1/delete/domain-admin",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"domain-admin",
+								"api",
+								"v1",
+								"delete",
+								"domain-admin"
+							]
+						},
+						"description": "Using this endpoint a existing Domain Admin user can be deleted."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address Rewriting",
+			"item": [
+				{
+					"name": "Get BCC Map",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "2d5bebf9-0151-4ff7-8ed2-7061e1f193a3"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "05cc1666-32aa-4fbd-89c1-9c488f638cec"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "b348eff8-0897-4e47-aa58-e33f5c2f4f6e"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/bcc/:id/api/v1/get/bcc/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"bcc",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"bcc",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "706dac57-ebab-4d69-90db-dc2f99d6509d"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "706dac57-ebab-4d69-90db-dc2f99d6509d"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all BCC maps."
+					},
+					"response": []
+				},
+				{
+					"name": "Create BCC Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "e69b4855-b79f-4cab-93e8-28c38be722a0"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "1bfa5619-51ef-4d89-9508-ba7c8140d95a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "d7fc05a7-12d4-4b40-8458-c80f804f6500"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"local_dest\": \"mailcow.tld\",\n    \"type\": \"sender\",\n    \"bcc_dest\": \"bcc@awesomecow.tld\",\n    \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/bcc/api/v1/add/bcc",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"bcc",
+								"api",
+								"v1",
+								"add",
+								"bcc"
+							]
+						},
+						"description": "Using this endpoint you can create a BCC map to forward all mails via a bcc for a given domain."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete BCC Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "576eff61-f744-4d97-b780-03978f76b8be"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "049bd904-0b18-4557-ad3c-82128e96830e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "41838e0b-9d35-4ff0-9250-59069aced5ed"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"3\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/bcc/api/v1/delete/bcc",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"bcc",
+								"api",
+								"v1",
+								"delete",
+								"bcc"
+							]
+						},
+						"description": "Using this endpoint you can delete a BCC map, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipient Map",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "c83b3265-90b8-4d9d-b3f7-af3f455f015f"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "523907c2-6934-4f22-9af8-6ce52505d7dd"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "f9a2af6f-cafe-4928-99af-6e7762fdd6f3"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/recipient_map/:id/api/v1/get/recipient_map/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"recipient_map",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"recipient_map",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "0b75def1-55eb-4e7d-a3c4-f3ff4f940bcf"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "0b75def1-55eb-4e7d-a3c4-f3ff4f940bcf"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all recipient maps."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Recipient Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "46eac6f3-7978-480e-a7a3-45af1a8c7c21"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "12945651-7e2a-423c-9b03-5203cf5c5a1a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "7042d9ec-d5cd-4c85-820b-f1c279b18dcb"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_map_old\": \"recipient@mailcow.tld\",\n    \"recipient_map_new\": \"target@mailcow.tld\",\n    \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/recipient_map/api/v1/add/recipient_map",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"recipient_map",
+								"api",
+								"v1",
+								"add",
+								"recipient_map"
+							]
+						},
+						"description": "Using this endpoint you can create a recipient map to forward all mails from one email address to another."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipient Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "3e506660-fd2c-4d51-ad68-d4ffe420da28"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "11d041bf-f470-4cb1-918e-b1f78a294c8c"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "ae74ae7c-440c-41f5-9589-e00827e53c23"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"1\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/recipient_map/api/v1/delete/recipient_map",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"recipient_map",
+								"api",
+								"v1",
+								"delete",
+								"recipient_map"
+							]
+						},
+						"description": "Using this endpoint you can delete a recipient map, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Outgoing TLS Policy Map Overrides",
+			"item": [
+				{
+					"name": "Get TLS Policy Map",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "be863c5d-d50c-4457-aed6-f8228686969b"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "f4c38940-2b07-48a6-89a3-06d66f5da0e0"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "6b6d7802-6973-46c6-8f5b-1c4d70dda2a7"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/tls-policy-map/:id/api/v1/get/tls-policy-map/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"tls-policy-map",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"tls-policy-map",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "3f06562a-9d80-41c0-b22c-9b2729724c66"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "3f06562a-9d80-41c0-b22c-9b2729724c66"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all TLS policy map override maps."
+					},
+					"response": []
+				},
+				{
+					"name": "Create TLS Policy Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "a0a632cb-8edb-491f-a3f7-a7995b782b70"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "047aee13-491f-4831-9294-9f36b65df4a0"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "37a35c28-3f30-4c90-8595-f9101ddef051"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dest\": \"mailcow.tld\",\n    \"policy\": \"encrypt\",\n    \"parameters\": \"\",\n    \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/tls-policy-map/api/v1/add/tls-policy-map",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"tls-policy-map",
+								"api",
+								"v1",
+								"add",
+								"tls-policy-map"
+							]
+						},
+						"description": "Using this endpoint you can create a TLS policy map override."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TLS Policy Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "b047151f-2d85-4f7e-a594-eca0325f5809"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "9215084b-560d-4171-aa13-826091cfe4df"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "430bfafe-4149-4033-b11f-e2f71ae15a5d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"3\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/tls-policy-map/api/v1/delete/tls-policy-map",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"tls-policy-map",
+								"api",
+								"v1",
+								"delete",
+								"tls-policy-map"
+							]
+						},
+						"description": "Using this endpoint you can delete a TLS Policy Map, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "oAuth Clients",
+			"item": [
+				{
+					"name": "Get oAuth Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "41e03e64-2f8e-484c-8580-df9a5d1b069a"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "7cb26f2f-6aa5-46fa-b491-97ec20dd1128"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "72d205b2-ff0c-4b1f-9be4-890696a8443f"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/oauth2-client/:id/api/v1/get/oauth2-client/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"oauth2-client",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"oauth2-client",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "f41a6fcd-2a93-4abf-92b8-c701b69d0799"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "f41a6fcd-2a93-4abf-92b8-c701b69d0799"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all oAuth clients."
+					},
+					"response": []
+				},
+				{
+					"name": "Create oAuth Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "3ea9f629-0d43-40a5-943d-b179b6411d1e"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "82afcc49-3a24-47de-b1c1-3b7a8be00f47"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "fc49a65e-5af6-4a12-8f16-4c8565c2d8ab"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"redirect_uri\":\"https://mailcow.tld\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/oauth2-client/api/v1/add/oauth2-client",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"oauth2-client",
+								"api",
+								"v1",
+								"add",
+								"oauth2-client"
+							]
+						},
+						"description": "Using this endpoint you can create a oAuth clients."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete oAuth Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "053590f3-4e03-4b11-b77d-1062c5f35f7b"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "42a92a4a-c7a7-4a54-b7d0-fefc45b5832a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "47086918-6f95-43de-9492-b4bcf0059bef"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"3\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/oauth2-client/api/v1/delete/oauth2-client",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"oauth2-client",
+								"api",
+								"v1",
+								"delete",
+								"oauth2-client"
+							]
+						},
+						"description": "Using this endpoint you can delete a oAuth client, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Routing",
+			"item": [
+				{
+					"name": "Get Sender-Dependent Transports",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "9c0d8c9b-fe2d-4b35-9ddc-b1e6f66080f8"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "a16b1dce-c244-4f42-9e4a-1acc011fbedb"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "f19d007a-1139-47d4-b788-1b058bb7f09a"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/relayhost/:id/api/v1/get/relayhost/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"relayhost",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"relayhost",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "b5f37874-564b-420f-a9f0-0f9582852412"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "b5f37874-564b-420f-a9f0-0f9582852412"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all Sender-Dependent Transports."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sender-Dependent Transports",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "716f779e-5d87-4be5-a867-8c41fcc8f089"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "7c6f1d03-0ee7-44f7-ada0-cb6e2e94e62d"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "19b835a0-e2d2-4255-9e1e-903837d5cfe4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hostname\": \"mailcow.tld:25\",\n    \"username\": \"testuser\",\n    \"password\": \"supersecurepassword\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/relayhost/api/v1/add/relayhost",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"relayhost",
+								"api",
+								"v1",
+								"add",
+								"relayhost"
+							]
+						},
+						"description": "Using this endpoint you can create Sender-Dependent Transports."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sender-Dependent Transports",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "4caf597f-329f-44b0-8114-a7fa3e68715e"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "6d47a193-3d7e-4436-ab57-aef4955b3f7c"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "883f4442-f7a9-49ff-8d8e-747b8cffebe6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"1\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/relayhost/api/v1/delete/relayhost",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"relayhost",
+								"api",
+								"v1",
+								"delete",
+								"relayhost"
+							]
+						},
+						"description": "Using this endpoint you can delete a Sender-Dependent Transport, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transport Maps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "6353311c-ebe2-47fa-b6a9-b6a4228eb279"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "0ff2405a-b65b-44bc-a509-585c73b86529"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "aa1089e3-1625-493d-a5b7-eded07ffd74d"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/transport/:id/api/v1/get/transport/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"transport",
+								":id",
+								"api",
+								"v1",
+								"get",
+								"transport",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "3ff0e39b-9adf-440a-85b6-f92c18213ed7"
+								},
+								{
+									"key": "id",
+									"value": "all",
+									"description": "id of entry you want to get",
+									"uuid": "3ff0e39b-9adf-440a-85b6-f92c18213ed7"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all Transport Maps."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transport Maps",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "43a5099e-7b27-4129-9a2e-9e1456976f85"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "c31a2c93-86b7-4590-910b-2ffc881a92e7"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "b5c77dae-d858-4f7a-afdd-73b47524bb6b"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"destination\": \"example.org\",\n    \"nexthop\": \"host:25\",\n    \"username\": \"testuser\",\n    \"password\": \"supersecurepw\",\n    \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/transport/all/api/v1/add/transport/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"transport",
+								"all",
+								"api",
+								"v1",
+								"add",
+								"transport",
+								"all"
+							]
+						},
+						"description": "Using this endpoint you can create Sender-Dependent Transports."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transport Maps",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "a64091e8-4582-446b-aa7a-89d8efc20400"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "4fe36786-2fe3-4443-930c-61698b8c115a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "e9b70d63-8d8f-472e-ba72-e42f0c9bc27d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"1\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/transport/api/v1/delete/transport",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"transport",
+								"api",
+								"v1",
+								"delete",
+								"transport"
+							]
+						},
+						"description": "Using this endpoint you can delete a Transport Maps, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resources",
+			"item": [
+				{
+					"name": "Get Resources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "8f810a9f-ace6-43be-920f-5997dc4c0837"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "87d0831c-fbd8-4ae6-b2a3-ebe67ca58dbf"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "995923a0-241b-41af-ac29-8ec5694808c7"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/resource/all/api/v1/get/resource/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"resource",
+								"all",
+								"api",
+								"v1",
+								"get",
+								"resource",
+								"all"
+							]
+						},
+						"description": "Using this endpoint you can get all Resources."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Resources",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "18a64b3f-7c43-4b34-8434-a50c88dd2150"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "ae04f48d-9043-4f89-b9d2-15958e620ff7"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "f3690d43-5dfc-4cc3-90e0-522b559bab94"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"test\",\n    \"domain\": \"mailcow.tld\",\n    \"kind\": \"location\",\n    \"multiple_bookings_select\": \"0\",\n    \"multiple_bookings_custom\": \"\",\n    \"multiple_bookings\": \"0\",\n    \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/resource/api/v1/add/resource",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"resource",
+								"api",
+								"v1",
+								"add",
+								"resource"
+							]
+						},
+						"description": "Using this endpoint you can create Resources."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Resources",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "bd7ff179-2911-4925-8c22-64154ee48459"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "d7a788ae-5d37-401a-874d-ae20a51ce2ca"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "c47b752e-9d45-416c-89a6-d850f23eb220"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"test@mailcow.tld\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/resource/api/v1/delete/resource",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"resource",
+								"api",
+								"v1",
+								"delete",
+								"resource"
+							]
+						},
+						"description": "Using this endpoint you can delete a Resources, for this you have to know its ID. You can get the ID using the GET method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "App Passwords",
+			"item": [
+				{
+					"name": "Get App Password",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "ce4ec749-5353-46dd-b743-7888c727d144"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "dfedd343-211d-472c-8ed5-2091d2bcc9ee"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "9dd97024-a053-4426-920c-963835b9d491"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/app-passwd/all/:mailbox/api/v1/get/app-passwd/all/:mailbox",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"app-passwd",
+								"all",
+								":mailbox",
+								"api",
+								"v1",
+								"get",
+								"app-passwd",
+								"all",
+								":mailbox"
+							],
+							"variable": [
+								{
+									"key": "mailbox",
+									"value": "hello@mailcow.email",
+									"description": "mailbox of entry you want to get",
+									"uuid": "170adccb-f359-41e5-bf0c-76242cf70056"
+								},
+								{
+									"key": "mailbox",
+									"value": "hello@mailcow.email",
+									"description": "mailbox of entry you want to get",
+									"uuid": "170adccb-f359-41e5-bf0c-76242cf70056"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get all app passwords from a specific mailbox."
+					},
+					"response": []
+				},
+				{
+					"name": "Create App Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "6cdb309c-5667-4667-b0b6-e48d7f26f24c"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "b1efa5c6-480a-4cd9-9f74-2115081f63f2"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "a29803f2-6722-4e43-93bc-3cd40234a9bd"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"hello@mailcow.email\"\n  \"app_name\": \"emclient\",\n  \"app_passwd\": \"keyleudecticidechothistishownsan31\",\n  \"app_passwd2\": \"keyleudecticidechothistishownsan31\",\n  \"active\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/add/app-passwd/api/v1/add/app-passwd",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"add",
+								"app-passwd",
+								"api",
+								"v1",
+								"add",
+								"app-passwd"
+							]
+						},
+						"description": "Using this endpoint you can create a new app password for a specific mailbox."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete App Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "3124eed1-d167-4780-ac6a-246839955c5b"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "b3770ba7-099e-4591-a1de-c80d881d6541"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "f82abd34-33d7-4caa-88d8-f6835452698d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"1\"]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/delete/app-passwd/api/v1/delete/app-passwd",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"app-passwd",
+								"api",
+								"v1",
+								"delete",
+								"app-passwd"
+							]
+						},
+						"description": "Using this endpoint you can delete a single app password."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "status",
+			"item": [
+				{
+					"name": "Get container status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "0fa66b2b-fd34-45ca-b520-ef5a62e5bf36"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "f05cc13e-da1b-42cd-80e9-5f2ce612b226"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "b5eb2470-a791-4d87-bd47-4cf4f1128cf0"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/status/containers/api/v1/get/status/containers",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"status",
+								"containers",
+								"api",
+								"v1",
+								"get",
+								"status",
+								"containers"
+							]
+						},
+						"description": "Using this endpoint you can get the status of all containers and when hey where started and a few other details."
+					},
+					"response": []
+				},
+				{
+					"name": "Get vmail status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "5656b38c-9055-4375-9c33-0f507ab47e07"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "64e11b52-1dbc-4b1b-91e6-232ed78f9c75"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "656a5f83-2e17-4dfd-8baf-ad6226021e25"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/status/vmail/api/v1/get/status/vmail",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"status",
+								"vmail",
+								"api",
+								"v1",
+								"get",
+								"status",
+								"vmail"
+							]
+						},
+						"description": "Using this endpoint you can get the status of the vmail and the amount of used storage."
+					},
+					"response": []
+				},
+				{
+					"name": "Get solr status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "21ad11f4-8f20-4249-99d1-f87717d96f67"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "d541e89b-df6b-4840-b714-82c323fffe62"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "d4fad01d-9a0f-4246-86d7-3b9158938a90"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/status/solr/api/v1/get/status/solr",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"status",
+								"solr",
+								"api",
+								"v1",
+								"get",
+								"status",
+								"solr"
+							]
+						},
+						"description": "Using this endpoint you can get the status of all containers and when hey where started and a few other details."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ratelimits",
+			"item": [
+				{
+					"name": "Get Mailbox Ratelimits",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "70f82e65-2fa8-4b21-ada2-39af11732654"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "7ca17515-e4b1-4004-ad13-37542432ba2d"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "54c7816d-1a91-4395-bc7a-f587527a698a"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/rl-mbox/:mailbox/api/v1/get/rl-mbox/:mailbox",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"rl-mbox",
+								":mailbox",
+								"api",
+								"v1",
+								"get",
+								"rl-mbox",
+								":mailbox"
+							],
+							"variable": [
+								{
+									"key": "mailbox",
+									"value": "",
+									"description": "name of mailbox or all",
+									"uuid": "137162d2-53c7-4779-b2e2-ed7bfa6d3779"
+								},
+								{
+									"key": "mailbox",
+									"value": "",
+									"description": "name of mailbox or all",
+									"uuid": "137162d2-53c7-4779-b2e2-ed7bfa6d3779"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get the ratelimits for a certain mailbox. You can use all for all mailboxes."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Domain Ratelimits",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "16b145d1-2c6f-44e3-b7f8-d70d7cae5a07"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "f5bc6efa-1303-404f-9211-e2c070d658fa"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "72dfeb99-82a1-4c15-b71a-ebdd60495faa"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/api/v1/get/rl-domain/:domain/api/v1/get/rl-domain/:domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"get",
+								"rl-domain",
+								":domain",
+								"api",
+								"v1",
+								"get",
+								"rl-domain",
+								":domain"
+							],
+							"variable": [
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain or all",
+									"uuid": "5dc67855-2cbf-480a-b92e-cc06a1cfe2ba"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"description": "name of domain or all",
+									"uuid": "5dc67855-2cbf-480a-b92e-cc06a1cfe2ba"
+								}
+							]
+						},
+						"description": "Using this endpoint you can get the ratelimits for a certain mailbox. You can use all for all mailboxes."
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Domain Ratelimits",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "da96bf22-8833-4b7f-b1d3-c617455b78d2"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "7a583cff-0676-459d-b2ee-517d766a9c96"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "9136a768-a8ce-4792-ac42-217a5172bf9c"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"attr\":\n      {\n        \"rl_vlaue\": \"10\",\n        \"rl_frame\": \"h\"\n      },\n    \"items\": [\"domain.tld\"]\n  }\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/rl-domain//api/v1/edit/rl-domain",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"rl-domain",
+								"",
+								"api",
+								"v1",
+								"edit",
+								"rl-domain"
+							]
+						},
+						"description": "Using this endpoint you can edit the ratelimit of one or multiple domains"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Mailbox Ratelimits",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "7a5d4311-3cc4-4a54-a867-7fc4db024ef6"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "api-key-string",
+								"uuid": "4fa495c6-9ff4-4cbc-93ec-58ac79413859"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "4145a666-09de-4545-9472-606b1ab67b62"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"attr\":\n      {\n        \"rl_vlaue\": \"10\",\n        \"rl_frame\": \"h\"\n      },\n    \"items\": [\"info@domain.tld\"]\n  }\n]"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/edit/rl-mbox//api/v1/edit/rl-mbox",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"edit",
+								"rl-mbox",
+								"",
+								"api",
+								"v1",
+								"edit",
+								"rl-mbox"
+							]
+						},
+						"description": "Using this endpoint you can edit the ratelimit of one or multiple mailboxes"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

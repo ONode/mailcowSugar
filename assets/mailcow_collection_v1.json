@@ -1,0 +1,2943 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "id": "ffcd3450-2db2-4195-b912-aaaedb227763",
+      "name": "mailcow API",
+      "description": "mailcow is complete e-mailing solution with advanced antispam, antivirus, nice UI and API.\n\nIn order to use this API you have to create a API key and add your IP address to the whitelist of allowed IPs this can be done by logging into the Mailcow UI using your admin account, then go to Configuration > Access > Edit administrator details > API. There you will find a collapsed API menu.\n\n**This documentation is in Work In Progress status. It contains only few endpoints.**",
+      "order": [],
+      "folders_order": [
+        "daf3d8e3-9bae-4c96-b0d2-a2761a1b585f",
+        "5a7e6c24-c7bf-4492-a5d5-edc82e9e94b1",
+        "3b0d8163-e273-4feb-89e4-90f5308938a1",
+        "2a6da706-4a32-435b-9c16-3086f926e5d7",
+        "d48e13c6-98d0-4d20-8814-15eef00c4a05",
+        "5c0e6699-49d5-4021-b252-6107493341fe",
+        "6c229b20-8ae3-4fc8-baea-ac695b35a476",
+        "ad2eea06-f2b9-4e98-b87e-96525bc4f2ca",
+        "4b92047e-7092-4565-8e06-33a26262842f",
+        "03a4b14e-d7d3-4143-bc17-d02ad5ea3171",
+        "0268255c-c010-4c75-8882-d4c9d9baf3e1",
+        "ec150014-8b69-4b6d-956f-d0a6bfc36820",
+        "f6b38209-dd70-4b11-bb66-db2eecd6a957",
+        "38b8b5c6-868c-49a6-8855-8ca7c239b3ea",
+        "97607a7c-99d6-4ddc-a342-108efbb8beaf",
+        "b445e597-a25f-4687-acbc-0a0956233aa2",
+        "9f31b9eb-ae20-4882-8b17-fe6ed71c6f1b",
+        "9f20ebbf-d3fc-4db7-b829-9622910e1f08",
+        "19a83570-c970-4eef-bdba-28a3a2ae3703",
+        "e47299a0-0adc-402f-86a9-460ebc64ed14"
+      ],
+      "folders": [
+        {
+          "id": "daf3d8e3-9bae-4c96-b0d2-a2761a1b585f",
+          "name": "Domains",
+          "order": [
+            "ee552f69-b732-4f25-8a94-765da9ef9909",
+            "21eb1a58-d736-4fb1-9271-099ccea5a2b7",
+            "2033efb8-3a90-48f3-a9cd-1d009c4d8e8a",
+            "e67d702a-51cd-4877-bff1-ff6af09dcf96"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "5a7e6c24-c7bf-4492-a5d5-edc82e9e94b1",
+          "name": "Domain antispam policies",
+          "order": [
+            "ed6e6da9-ebc1-448d-a169-ac8fd3df0230",
+            "4351e4c4-29db-4839-afd8-655ddf575051",
+            "95f6caec-557f-4808-920d-2b9b101da23a",
+            "2fb2da81-4f3c-4e43-b1ea-c62260327133"
+          ],
+          "folders_order": [],
+          "description": "You can create antispam whitelist and blacklist policies"
+        },
+        {
+          "id": "3b0d8163-e273-4feb-89e4-90f5308938a1",
+          "name": "Mailboxes",
+          "order": [
+            "a5beab38-7566-420d-a0d0-e571de4064ab",
+            "248bae31-562d-427d-8fc3-c95192c9b6fc",
+            "ed175c98-26a4-409e-95c2-a9183cfc6f35",
+            "4fd0ff29-bd0f-44dd-9363-62d08b854e80",
+            "608a04a5-7ec1-4976-818a-ac3f104635dc",
+            "0b257483-4f3d-4680-8039-d68220d4ac44",
+            "cd0d7f8a-f889-46f7-9623-045efb722920",
+            "ca6279cd-a2b9-4d6c-9c92-80a429f88c1f"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "2a6da706-4a32-435b-9c16-3086f926e5d7",
+          "name": "Aliases",
+          "order": [
+            "767f0f39-873e-4e78-8f6b-3176885b72a2",
+            "b6099a86-fcbe-4a28-a51d-976f3e6edf06",
+            "fa902838-bc12-4a34-8fc4-926a299f5fca",
+            "c4736b28-67b8-45c7-8ed2-c8b360f54529"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "d48e13c6-98d0-4d20-8814-15eef00c4a05",
+          "name": "Sync jobs",
+          "order": [
+            "c671f750-c4a0-4d07-a64d-887a52659672",
+            "73f66f9d-2457-4b45-a658-1952a36d8880",
+            "90771160-b263-499a-b13d-ba809ed27a64",
+            "08f22fd8-e5d5-49ec-9752-ce0d3d6decc8"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "5c0e6699-49d5-4021-b252-6107493341fe",
+          "name": "Fordwarding Hosts",
+          "order": [
+            "abf84c8a-cea1-4a7a-88ec-87b455354e3f",
+            "9d6e3a6b-77e3-4536-a744-7fef5a6649fc",
+            "1d074cec-c033-4787-9a6f-2573a1ca27d8"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "6c229b20-8ae3-4fc8-baea-ac695b35a476",
+          "name": "Logs",
+          "order": [
+            "636c014a-6097-4707-8585-834242e6aa24",
+            "ce0b7d1c-4185-43da-9193-5170e7b71016",
+            "67a856ad-d950-4ff8-a134-ae6b15be5b76",
+            "ad5afbb2-40bc-497f-a859-657029b9b922",
+            "460735b3-1984-4ecc-ac96-d7bf1da2fc4f",
+            "c93f248d-c19f-4142-aec9-d42e92ae498c",
+            "80af8c6a-0c2b-4d8b-8018-e3d9c9a08cbe",
+            "c11d2685-ffe7-4564-a18b-306e682a435f",
+            "9985dcf0-78e9-442b-8090-d0b81ebdcf4f",
+            "0b624043-ae30-44aa-907d-b79729cd018f"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "ad2eea06-f2b9-4e98-b87e-96525bc4f2ca",
+          "name": "Queue Manager",
+          "order": [
+            "04e6d393-0e4d-4112-a334-bbe6e40eb54f",
+            "c71bad6e-2478-402a-ae36-0edeb01762ce",
+            "51b0fb50-5c8b-4a3f-9ad6-b99e501a2995"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "4b92047e-7092-4565-8e06-33a26262842f",
+          "name": "Quarantine",
+          "order": [
+            "70f73a81-82cc-400d-9886-2f2a705f1ab7",
+            "16bb41af-0a4d-4105-96ce-209e7e7352ad"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "03a4b14e-d7d3-4143-bc17-d02ad5ea3171",
+          "name": "Fail2Ban",
+          "order": [
+            "4b1e5d89-15e4-41ca-b2d5-cb61685a2fec",
+            "29804ff2-d361-4f42-9a36-6bdd4be34aa6"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "0268255c-c010-4c75-8882-d4c9d9baf3e1",
+          "name": "DKIM",
+          "order": [
+            "745ace0b-3866-4845-8b12-1c0c1fbb2c77",
+            "ef69d5be-caae-4381-aba0-7fd340d16a7e",
+            "b917c5e7-3ad4-4db8-b9d8-b0f89fd88464",
+            "cbe68edd-8179-4ca4-bc66-82cbd3710382"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "ec150014-8b69-4b6d-956f-d0a6bfc36820",
+          "name": "Domain admin",
+          "order": [
+            "5fdead4b-4504-48d8-8985-0f67f1d6e0d5",
+            "711c1613-c6a6-41d4-8bc6-eef97eb6fa79",
+            "8e2fa3a8-e8b1-4de0-ac38-bb7decaae578"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "f6b38209-dd70-4b11-bb66-db2eecd6a957",
+          "name": "Address Rewriting",
+          "order": [
+            "28f9770e-f651-4e51-bee8-49826f582b99",
+            "2b951fc1-c7aa-4ca6-8cb1-e66d7beaf24d",
+            "f4506885-4f2e-4ad7-a349-867b7e9a5978",
+            "3de345d6-ae16-4ebb-875f-c38d6cbcc657",
+            "9738f0b6-22a7-4df6-b58d-9faee5b25640",
+            "161a3242-99a6-452b-be30-67c078f2617f"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "38b8b5c6-868c-49a6-8855-8ca7c239b3ea",
+          "name": "Outgoing TLS Policy Map Overrides",
+          "order": [
+            "2ca23924-c668-4325-8b96-7ae8eaa0db30",
+            "175a0808-6ab9-402f-8421-473019d7b6d1",
+            "76fa8689-69ac-47ae-b0ef-05570e6ad9c4"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "97607a7c-99d6-4ddc-a342-108efbb8beaf",
+          "name": "oAuth Clients",
+          "order": [
+            "45bad1be-63b6-410c-9c57-a543f4f3af0b",
+            "011ca4dd-fd30-443d-99b7-a0d9df88aa42",
+            "ea8d1483-4729-4acd-b374-256b1c332afa"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "b445e597-a25f-4687-acbc-0a0956233aa2",
+          "name": "Routing",
+          "order": [
+            "9d366161-44b1-4193-abbf-932ea88a143e",
+            "aac8d7f2-c685-40d3-a97f-327d7165b5cb",
+            "ba8443c2-682a-4eae-8a44-a8fbf3ad9da4",
+            "dccc1fff-bf71-4296-8314-8aaf7d87840d",
+            "ca506a83-6451-4b13-a6f5-fb7f0326ea61",
+            "7f360edb-f05b-4f00-b3d1-6d57ffe57e50"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "9f31b9eb-ae20-4882-8b17-fe6ed71c6f1b",
+          "name": "Resources",
+          "order": [
+            "9fc65ed4-f6a6-4e20-989d-7fe4ce2f216c",
+            "b20ca260-047e-4121-9d58-2f9059249d44",
+            "2fb39eee-d454-4d3c-86eb-4668c14b7f34"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "9f20ebbf-d3fc-4db7-b829-9622910e1f08",
+          "name": "App Passwords",
+          "order": [
+            "edfa9fa2-22d5-487e-b466-4d46e3672519",
+            "46302a5d-7d1d-4361-94b8-ae0efd106615",
+            "2df6ac2a-785c-4b3d-b42b-ba9012899416"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "19a83570-c970-4eef-bdba-28a3a2ae3703",
+          "name": "status",
+          "order": [
+            "6d0f9ca9-c350-4b82-9a1e-0d5420226469",
+            "18389a76-79b5-4c36-90c8-0e781bd8ea04",
+            "4209d9a9-f3f0-4c03-9c4b-acef34596254"
+          ],
+          "folders_order": []
+        },
+        {
+          "id": "e47299a0-0adc-402f-86a9-460ebc64ed14",
+          "name": "Ratelimits",
+          "order": [
+            "550085bd-cad6-4265-8a7d-43af0956e18a",
+            "1e427f19-535f-4343-a778-bee1f84f983c",
+            "bd4219f8-c10f-4b32-87fd-35919ebe0c40",
+            "07b89f95-800f-4014-abf1-09a6e92885a7"
+          ],
+          "folders_order": []
+        }
+      ],
+      "requests": [
+        {
+          "id": "ee552f69-b732-4f25-8a94-765da9ef9909",
+          "name": "Get domains",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list all domains existing in system.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/domain/:id/api/v1/get/domain/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "21eb1a58-d736-4fb1-9271-099ccea5a2b7",
+          "name": "Create domain",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You may create your own domain using this action. It takes a JSON object containing a domain informations.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"domain\":\"domain.tld\",\n   \"description\":\"some decsription\",\n   \"aliases\":\"400\",\n   \"mailboxes\":\"10\",\n   \"defquota\":\"3072\",\n   \"maxquota\":\"10240\",\n   \"quota\":\"10240\",\n   \"active\":\"1\",\n   \"rl_value\":\"10\",\n   \"rl_frame\":\"s\",\n   \"backupmx\":\"0\",\n   \"relay_all_recipients\":\"0\",\n   \"restart_sogo\":\"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/domain/api/v1/add/domain",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "2033efb8-3a90-48f3-a9cd-1d009c4d8e8a",
+          "name": "Update domain",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can update one or more domains per request. You can also send just attributes you want to change.\nExample: You can add domain names to items list and in attr object just include `\"active\": \"0\"` to deactivate domains.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"items\":[\n      \"domain.tld\"\n   ],\n   \"attr\":{\n      \"description\":\"domain description\",\n      \"aliases\":\"400\",\n      \"mailboxes\":\"10\",\n      \"defquota\":\"3072\",\n      \"maxquota\":\"10240\",\n      \"quota\":\"10240\",\n      \"active\":\"1\",\n      \"gal\":\"1\",\n      \"relayhost\":\"2\",\n      \"backupmx\":\"1\",\n      \"relay_all_recipients\":\"0\"\n   }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/domain/api/v1/edit/domain",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "e67d702a-51cd-4877-bff1-ff6af09dcf96",
+          "name": "Delete domain",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can delete one or more domains.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n    \"domain.tld\",\n    \"domain2.tld\"\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/domain/api/v1/delete/domain",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ed6e6da9-ebc1-448d-a169-ac8fd3df0230",
+          "name": "List whitelist domain policy",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list all whitelist policies per domain.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "domain": ""
+          },
+          "url": "{{HOST}}/api/v1/get/policy_wl_domain/:domain/api/v1/get/policy_wl_domain/:domain",
+          "pathVariableData": [
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain"
+            },
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "4351e4c4-29db-4839-afd8-655ddf575051",
+          "name": "List blacklist domain policy",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list all blacklist policies per domain.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "domain": ""
+          },
+          "url": "{{HOST}}/api/v1/get/policy_bl_domain/:domain/api/v1/get/policy_bl_domain/:domain",
+          "pathVariableData": [
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain"
+            },
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "95f6caec-557f-4808-920d-2b9b101da23a",
+          "name": "Create domain policy",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You may create your own domain policy using this action. It takes a JSON object containing a domain informations.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"domain\":\"domain.tld\",\n   \"object_list\":\"bl\",\n   \"object_from\":\"*@baddomain.tld\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/domain-policy/api/v1/add/domain-policy",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "2fb2da81-4f3c-4e43-b1ea-c62260327133",
+          "name": "Delete domain policy",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can delete one o more domain policies.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n    \"1\",\n    \"2\"\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/domain-policy/api/v1/delete/domain-policy",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "a5beab38-7566-420d-a0d0-e571de4064ab",
+          "name": "Get mailboxes",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list all mailboxes existing in system.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/mailbox/:id/api/v1/get/mailbox/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "248bae31-562d-427d-8fc3-c95192c9b6fc",
+          "name": "Create mailbox",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You may create your own mailbox using this action. It takes a JSON object containing a domain informations.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"local_part\": \"info\",\n   \"domain\": \"domain.tld\",\n   \"name\": \"Full name\",\n   \"quota\": \"3072\",\n   \"password\": \"atedismonsin\",\n   \"password2\": \"atedismonsin\",\n   \"active\": \"1\"\n   \"force_pw_update\": \"1\"\n   \"tls_enforce_in\": \"1\"\n   \"tls_enforce_out\": \"1\"\n\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/mailbox/api/v1/add/mailbox",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ed175c98-26a4-409e-95c2-a9183cfc6f35",
+          "name": "Update mailbox",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can update one or more mailboxes per request. You can also send just attributes you want to change",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"items\":[\n      \"info@domain.tld\"\n   ],\n   \"attr\":{\n       \"name\":\"Full name\",\n       \"quota\":\"3072\",\n       \"password\":\"\",\n       \"password2\":\"\",\n       \"active\":\"1\",\n       \"sender_acl\":[\n          \"default\",\n          \"info@domain2.tld\",\n          \"domain3.tld\",\n          \"*\"\n       ],\n       \"force_pw_update\":\"0\",\n       \"sogo_access\":\"1\"\n    }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/mailbox/api/v1/edit/mailbox",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "4fd0ff29-bd0f-44dd-9363-62d08b854e80",
+          "name": "Update mailbox spam score",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can set the spam score for certain mailboxes",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n  {\n    \"items\": [\"info@domain.tld\"],\n    \"attr\": {\n      \"spam_score\": \"8,15\"\n    }\n  }\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/spam-score/api/v1/edit/spam-score",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "608a04a5-7ec1-4976-818a-ac3f104635dc",
+          "name": "Update mailbox ACL",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoints its possible to update the ACL's for mailboxes",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n  \"items\": [\"info@domain.tld\"],\n  \"attr\": {\n    \"user_acl\": [\"spam_alias\",\"tls_policy\",\"spam_score\",\"spam_policy\",\"delimiter_action\",\"syncjobs\",\"eas_reset\",\"quarantine\",\"sogo_profile_reset\",\"quarantine_attachments\",\"quarantine_notification\",\"app_passwds\",\"pushover\"]\n  }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/user-acl/api/v1/edit/user-acl",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "0b257483-4f3d-4680-8039-d68220d4ac44",
+          "name": "Update Pushover settings",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint it is possible to update the pushover settings for mailboxes",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n  \"items\": [\"info@domain.tld\"],\n  \"attr\":\n  {\n    \"evaluate_x_prio\": \"0\",\n    \"only_x_prio\": \"0\",\n    \"active\": \"0\",\n    \"token\":\"9023e2ohcwed27d1idu2\",\n    \"key\":\"21e8918e1jksdjcpis712\",\n    \"title\":\"Mail\",\n    \"text\":\"\",\n    \"senders\":\"\",\n    \"senders_regex\":\"\"\n  }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/pushover/api/v1/edit/pushover",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "cd0d7f8a-f889-46f7-9623-045efb722920",
+          "name": "Delete mailbox",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can delete one or more mailboxes.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n    \"info@domain.tld\",\n    \"sales@domain.tld\"\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/mailbox/api/v1/delete/mailbox",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ca6279cd-a2b9-4d6c-9c92-80a429f88c1f",
+          "name": "Quarantine Notifications",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can update one or more mailboxes per request.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"items\":[\n      \"mailbox1@domain.tld\",\n      \"mailbox2@domain.tld\"\n   ],\n   \"attr\":{\n       \"quarantine_notification\":\"hourly\"\n    }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/quarantine_notification/api/v1/edit/quarantine_notification",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "767f0f39-873e-4e78-8f6b-3176885b72a2",
+          "name": "Get aliases",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list mailbox aliases existing in system.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/alias/:id/api/v1/get/alias/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "b6099a86-fcbe-4a28-a51d-976f3e6edf06",
+          "name": "Create alias",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You may create your own mailbox alias using this action. It takes a JSON object containing a domain informations.\nOnly one `goto*` option can be used, for ex. if you want learn as spam, then send just `goto_spam = 1` in request body.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"address\":\"alias@domain.tld\",\n   \"goto\":\"destination@domain.tld\",\n   \"active\":\"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/alias/api/v1/add/alias",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "fa902838-bc12-4a34-8fc4-926a299f5fca",
+          "name": "Update alias",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can update one or more aliases per request. You can also send just attributes you want to change",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"items\":[\n      \"6\"\n   ],\n   \"attr\":{\n       \"address\":\"alias@domain.tld\",\n       \"goto\":\"destination@domain.tld\",\n       \"private_comment\":\"private comment\",\n       \"public_comment\":\"public comment\",\n       \"active\":\"1\"\n    }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/alias/api/v1/edit/alias",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "c4736b28-67b8-45c7-8ed2-c8b360f54529",
+          "name": "Delete alias",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can delete one or more aliases.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n    \"6\",\n    \"9\"\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/alias/api/v1/delete/alias",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "c671f750-c4a0-4d07-a64d-887a52659672",
+          "name": "Get sync jobs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list all syn jobs existing in system.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/syncjobs/all/no_log/api/v1/get/syncjobs/all/no_log",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "73f66f9d-2457-4b45-a658-1952a36d8880",
+          "name": "Create sync job",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can create new sync job using this action. It takes a JSON object containing a domain informations.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"username\":\"mailbox@domain.tld\",\n   \"host1\":\"imap.server.tld\",\n   \"port1\":\"993\",\n   \"user1\":\"username\",\n   \"password1\":\"supersecret\",\n   \"enc1\":\"SSL\",\n   \"mins_interval\":\"20\",\n   \"subfolder2\":\"External\",\n   \"maxage\":\"0\",\n   \"maxbytespersecond\":\"0\",\n   \"timeout1\":\"600\",\n   \"timeout2\":\"600\",\n   \"exclude\":\"(?i)spam|(?i)junk\",\n   \"custom_params\":\"\",\n   \"delete2duplicates\":\"1\",\n   \"delete1\":\"0\",\n   \"delete2\":\"0\",\n   \"automap\":\"1\",\n   \"skipcrossduplicates\":\"0\",\n   \"subscribeall\":\"1\",\n   \"active\":\"1\",\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/syncjob/api/v1/add/syncjob",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "90771160-b263-499a-b13d-ba809ed27a64",
+          "name": "Update sync job",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can update one or more sync jobs per request. You can also send just attributes you want to change.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n   \"items\":[\n      \"1\"\n   ],\n   \"attr\":{\n       \"delete2duplicates\":\"1\",\n       \"delete1\":\"0\",\n       \"delete2\":\"0\",\n       \"automap\":\"1\",\n       \"skipcrossduplicates\":\"0\",\n       \"active\":\"1\",\n       \"subscribeall\":\"1\",\n       \"host1\":\"imap.server.tld\",\n       \"port1\":\"993\",\n       \"user1\":\"username\",\n       \"password1\":\"supersecret\",\n       \"enc1\":\"SSL\",\n       \"mins_interval\":\"20\",\n       \"subfolder2\":\"External\",\n       \"maxage\":\"0\",\n       \"maxbytespersecond\":\"0\",\n       \"timeout1\":\"600\",\n       \"timeout2\":\"600\",\n       \"exclude\":\"(?i)spam|(?i)junk\",\n       \"custom_params\":\"\"\n    }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/syncjob/api/v1/edit/syncjob",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "08f22fd8-e5d5-49ec-9752-ce0d3d6decc8",
+          "name": "Delete sync job",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "You can delete one or more sync jobs.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n    \"6\",\n    \"9\"\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/syncjob/api/v1/delete/syncjob",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "abf84c8a-cea1-4a7a-88ec-87b455354e3f",
+          "name": "Get Forwarding Hosts",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "You can list all Forwarding Hosts in your mailcow.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/fwdhost/all/api/v1/get/fwdhost/all",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "9d6e3a6b-77e3-4536-a744-7fef5a6649fc",
+          "name": "Add Forward Host",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Add a new Forwarding host to mailcow. You can chose to enable or disable spam filtering of incoming emails by specifing `filter_spam` 0 = inactive, 1 = active.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"hostname\": \"hosted.mailcow.de\",\n    \"filter_spam\": \"0\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/fwdhost/api/v1/add/fwdhost",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "1d074cec-c033-4787-9a6f-2573a1ca27d8",
+          "name": "Delete Forward Host",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a forwarding host, in order to do so you need to know the IP of the host.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"5.1.76.202\",\"2a00:f820:417::202\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/fwdhost/api/v1/delete/fwdhost",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "636c014a-6097-4707-8585-834242e6aa24",
+          "name": "Get Postfix logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Postfix logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/postfix/:count/api/v1/get/logs/postfix/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ce0b7d1c-4185-43da-9193-5170e7b71016",
+          "name": "Get Rspamd logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Rspamd logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/rspamd-history/:count/api/v1/get/logs/rspamd-history/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "67a856ad-d950-4ff8-a134-ae6b15be5b76",
+          "name": "Get Dovecot logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Dovecot logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/dovecot/:count/api/v1/get/logs/dovecot/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ad5afbb2-40bc-497f-a859-657029b9b922",
+          "name": "Get ACME logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all ACME logs from issued Lets Enctypts certificates.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/acme/:count/api/v1/get/logs/acme/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "460735b3-1984-4ecc-ac96-d7bf1da2fc4f",
+          "name": "Get SOGo logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all SOGo logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/sogo/:count/api/v1/get/logs/sogo/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "c93f248d-c19f-4142-aec9-d42e92ae498c",
+          "name": "Get Watchdog logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Watchdog logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/watchdog/:count/api/v1/get/logs/watchdog/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "80af8c6a-0c2b-4d8b-8018-e3d9c9a08cbe",
+          "name": "Get Api logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Api logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/api/:count/api/v1/get/logs/api/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "c11d2685-ffe7-4564-a18b-306e682a435f",
+          "name": "Get Ratelimit logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Ratelimit logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/ratelimited/:count/api/v1/get/logs/ratelimited/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "9985dcf0-78e9-442b-8090-d0b81ebdcf4f",
+          "name": "Get Netfilter logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Netfilter logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/netfilter/:count/api/v1/get/logs/netfilter/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "0b624043-ae30-44aa-907d-b79729cd018f",
+          "name": "Get Autodiscover logs",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "This Api endpoint lists all Autodiscover logs.\nTip: You can limit how many logs you want to get by using `/<count>` at the end of the api url.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "count": ""
+          },
+          "url": "{{HOST}}/api/v1/get/logs/autodiscover/:count/api/v1/get/logs/autodiscover/:count",
+          "pathVariableData": [
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            },
+            {
+              "key": "count",
+              "value": "",
+              "description": "Number of logs to return"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "04e6d393-0e4d-4112-a334-bbe6e40eb54f",
+          "name": "Get Queue",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Get the current mail queue and everything it contains.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/mailq/all/api/v1/get/mailq/all",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "c71bad6e-2478-402a-ae36-0edeb01762ce",
+          "name": "Flush Queue",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this API you can flush the current mail queue. This will try to deliver all mails currently in it.\nThis API uses the command: `postqueue -f`",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n  \"action\":\"flush\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/mailq/api/v1/edit/mailq",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "51b0fb50-5c8b-4a3f-9ad6-b99e501a2995",
+          "name": "Delete Queue",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this API you can delete the current mail queue. This will delete all mails in it.\nThis API uses the command: `postsuper -d`",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"action\":\"super_delete\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/mailq/api/v1/delete/mailq",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "70f73a81-82cc-400d-9886-2f2a705f1ab7",
+          "name": "Get mails in Quarantine",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Get all mails that are currently in Quarantine.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/quarantine/all/api/v1/get/quarantine/all",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "16bb41af-0a4d-4105-96ce-209e7e7352ad",
+          "name": "Delete mails in Quarantine",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a email from quarantine, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"33\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/qitem/api/v1/delete/qitem",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "4b1e5d89-15e4-41ca-b2d5-cb61685a2fec",
+          "name": "Get Fail2Ban Config",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Gets the current Fail2Ban configuration.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/fail2ban/api/v1/get/fail2ban",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "29804ff2-d361-4f42-9a36-6bdd4be34aa6",
+          "name": "Edit Fail2Ban",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can edit the Fail2Ban config and black or whitelist new ips.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n  \"items\":[\n      \"none\"\n   ],\n  \"attr\": {\n    \"ban_time\": \"86400\",\n    \"max_attempts\": \"5\",\n    \"retry_window\": \"600\",\n    \"netban_ipv4\": \"24\",\n    \"netban_ipv6\": \"64\",\n    \"whitelist\": \"mailcow.tld\",\n    \"blacklist\": \"10.100.6.5/32,10.100.8.4/32\"\n    }\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/fail2ban/api/v1/edit/fail2ban",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "745ace0b-3866-4845-8b12-1c0c1fbb2c77",
+          "name": "Get DKIM Key",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get the DKIM public key for a specific domain.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "domain": ""
+          },
+          "url": "{{HOST}}/api/v1/get/dkim/:domain/api/v1/get/dkim/:domain",
+          "pathVariableData": [
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain"
+            },
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ef69d5be-caae-4381-aba0-7fd340d16a7e",
+          "name": "Generate DKIM Key",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can generate new DKIM keys.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"domains\":\"mailcow.tld\",\n    \"dkim_selector\":\"dkim\",\n    \"key_size\":\"2048\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/dkim/api/v1/add/dkim",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "b917c5e7-3ad4-4db8-b9d8-b0f89fd88464",
+          "name": "Duplicate DKIM Key",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can duplicate the DKIM Key of one domain.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"from_domain\":\"mailcow.tld\",\n    \"to_domain\":\"awesomecow.tld\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/dkim_duplicate/api/v1/add/dkim_duplicate",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "cbe68edd-8179-4ca4-bc66-82cbd3710382",
+          "name": "Delete DKIM Key",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint a existing DKIM Key can be deleted",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"mailcow.tld\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/dkim/api/v1/delete/dkim",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "5fdead4b-4504-48d8-8985-0f67f1d6e0d5",
+          "name": "Get Domain Admins",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/domain-admin/all/api/v1/get/domain-admin/all",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "711c1613-c6a6-41d4-8bc6-eef97eb6fa79",
+          "name": "Create Domain Admin user",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create a new Domain Admin user. This user has full control over a domain, and can create new mailboxes and aliases.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"username\": \"testadmin\",\n    \"domains\": \"mailcow.tld\",\n    \"password\": \"supersecurepw\",\n    \"password2\": \"supersecurepw\",\n    \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/domain-admin/api/v1/add/domain-admin",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "8e2fa3a8-e8b1-4de0-ac38-bb7decaae578",
+          "name": "Delete Domain Admin",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint a existing Domain Admin user can be deleted.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"testadmin\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/domain-admin/api/v1/delete/domain-admin",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "28f9770e-f651-4e51-bee8-49826f582b99",
+          "name": "Get BCC Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all BCC maps.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/bcc/:id/api/v1/get/bcc/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "2b951fc1-c7aa-4ca6-8cb1-e66d7beaf24d",
+          "name": "Create BCC Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create a BCC map to forward all mails via a bcc for a given domain.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"local_dest\": \"mailcow.tld\",\n    \"type\": \"sender\",\n    \"bcc_dest\": \"bcc@awesomecow.tld\",\n    \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/bcc/api/v1/add/bcc",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "f4506885-4f2e-4ad7-a349-867b7e9a5978",
+          "name": "Delete BCC Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a BCC map, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"3\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/bcc/api/v1/delete/bcc",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "3de345d6-ae16-4ebb-875f-c38d6cbcc657",
+          "name": "Get Recipient Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all recipient maps.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/recipient_map/:id/api/v1/get/recipient_map/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "9738f0b6-22a7-4df6-b58d-9faee5b25640",
+          "name": "Create Recipient Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create a recipient map to forward all mails from one email address to another.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"recipient_map_old\": \"recipient@mailcow.tld\",\n    \"recipient_map_new\": \"target@mailcow.tld\",\n    \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/recipient_map/api/v1/add/recipient_map",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "161a3242-99a6-452b-be30-67c078f2617f",
+          "name": "Delete Recipient Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a recipient map, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"1\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/recipient_map/api/v1/delete/recipient_map",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "2ca23924-c668-4325-8b96-7ae8eaa0db30",
+          "name": "Get TLS Policy Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all TLS policy map override maps.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/tls-policy-map/:id/api/v1/get/tls-policy-map/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "175a0808-6ab9-402f-8421-473019d7b6d1",
+          "name": "Create TLS Policy Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create a TLS policy map override.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"dest\": \"mailcow.tld\",\n    \"policy\": \"encrypt\",\n    \"parameters\": \"\",\n    \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/tls-policy-map/api/v1/add/tls-policy-map",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "76fa8689-69ac-47ae-b0ef-05570e6ad9c4",
+          "name": "Delete TLS Policy Map",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a TLS Policy Map, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"3\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/tls-policy-map/api/v1/delete/tls-policy-map",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "45bad1be-63b6-410c-9c57-a543f4f3af0b",
+          "name": "Get oAuth Clients",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all oAuth clients.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/oauth2-client/:id/api/v1/get/oauth2-client/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "011ca4dd-fd30-443d-99b7-a0d9df88aa42",
+          "name": "Create oAuth Client",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create a oAuth clients.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"redirect_uri\":\"https://mailcow.tld\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/oauth2-client/api/v1/add/oauth2-client",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ea8d1483-4729-4acd-b374-256b1c332afa",
+          "name": "Delete oAuth Client",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a oAuth client, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"3\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/oauth2-client/api/v1/delete/oauth2-client",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "9d366161-44b1-4193-abbf-932ea88a143e",
+          "name": "Get Sender-Dependent Transports",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all Sender-Dependent Transports.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/relayhost/:id/api/v1/get/relayhost/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "aac8d7f2-c685-40d3-a97f-327d7165b5cb",
+          "name": "Create Sender-Dependent Transports",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create Sender-Dependent Transports.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"hostname\": \"mailcow.tld:25\",\n    \"username\": \"testuser\",\n    \"password\": \"supersecurepassword\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/relayhost/api/v1/add/relayhost",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ba8443c2-682a-4eae-8a44-a8fbf3ad9da4",
+          "name": "Delete Sender-Dependent Transports",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a Sender-Dependent Transport, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"1\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/relayhost/api/v1/delete/relayhost",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "dccc1fff-bf71-4296-8314-8aaf7d87840d",
+          "name": "Get Transport Maps",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all Transport Maps.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "id": "all"
+          },
+          "url": "{{HOST}}/api/v1/get/transport/:id/api/v1/get/transport/:id",
+          "pathVariableData": [
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            },
+            {
+              "key": "id",
+              "value": "all",
+              "description": "id of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "ca506a83-6451-4b13-a6f5-fb7f0326ea61",
+          "name": "Create Transport Maps",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create Sender-Dependent Transports.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"destination\": \"example.org\",\n    \"nexthop\": \"host:25\",\n    \"username\": \"testuser\",\n    \"password\": \"supersecurepw\",\n    \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/transport/all/api/v1/add/transport/all",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "7f360edb-f05b-4f00-b3d1-6d57ffe57e50",
+          "name": "Delete Transport Maps",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a Transport Maps, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"1\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/transport/api/v1/delete/transport",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "9fc65ed4-f6a6-4e20-989d-7fe4ce2f216c",
+          "name": "Get Resources",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all Resources.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/resource/all/api/v1/get/resource/all",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "b20ca260-047e-4121-9d58-2f9059249d44",
+          "name": "Create Resources",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create Resources.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n    \"description\": \"test\",\n    \"domain\": \"mailcow.tld\",\n    \"kind\": \"location\",\n    \"multiple_bookings_select\": \"0\",\n    \"multiple_bookings_custom\": \"\",\n    \"multiple_bookings\": \"0\",\n    \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/resource/api/v1/add/resource",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "2fb39eee-d454-4d3c-86eb-4668c14b7f34",
+          "name": "Delete Resources",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a Resources, for this you have to know its ID. You can get the ID using the GET method.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"test@mailcow.tld\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/resource/api/v1/delete/resource",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "edfa9fa2-22d5-487e-b466-4d46e3672519",
+          "name": "Get App Password",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get all app passwords from a specific mailbox.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "mailbox": "hello@mailcow.email"
+          },
+          "url": "{{HOST}}/api/v1/get/app-passwd/all/:mailbox/api/v1/get/app-passwd/all/:mailbox",
+          "pathVariableData": [
+            {
+              "key": "mailbox",
+              "value": "hello@mailcow.email",
+              "description": "mailbox of entry you want to get"
+            },
+            {
+              "key": "mailbox",
+              "value": "hello@mailcow.email",
+              "description": "mailbox of entry you want to get"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "46302a5d-7d1d-4361-94b8-ae0efd106615",
+          "name": "Create App Password",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can create a new app password for a specific mailbox.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "{\n  \"username\": \"hello@mailcow.email\"\n  \"app_name\": \"emclient\",\n  \"app_passwd\": \"keyleudecticidechothistishownsan31\",\n  \"app_passwd2\": \"keyleudecticidechothistishownsan31\",\n  \"active\": \"1\"\n}",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/add/app-passwd/api/v1/add/app-passwd",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "2df6ac2a-785c-4b3d-b42b-ba9012899416",
+          "name": "Delete App Password",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can delete a single app password.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\"1\"]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/delete/app-passwd/api/v1/delete/app-passwd",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "6d0f9ca9-c350-4b82-9a1e-0d5420226469",
+          "name": "Get container status",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get the status of all containers and when hey where started and a few other details.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/status/containers/api/v1/get/status/containers",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "18389a76-79b5-4c36-90c8-0e781bd8ea04",
+          "name": "Get vmail status",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get the status of the vmail and the amount of used storage.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/status/vmail/api/v1/get/status/vmail",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "4209d9a9-f3f0-4c03-9c4b-acef34596254",
+          "name": "Get solr status",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get the status of all containers and when hey where started and a few other details.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/get/status/solr/api/v1/get/status/solr",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "550085bd-cad6-4265-8a7d-43af0956e18a",
+          "name": "Get Mailbox Ratelimits",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get the ratelimits for a certain mailbox. You can use all for all mailboxes.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "mailbox": ""
+          },
+          "url": "{{HOST}}/api/v1/get/rl-mbox/:mailbox/api/v1/get/rl-mbox/:mailbox",
+          "pathVariableData": [
+            {
+              "key": "mailbox",
+              "value": "",
+              "description": "name of mailbox or all"
+            },
+            {
+              "key": "mailbox",
+              "value": "",
+              "description": "name of mailbox or all"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "1e427f19-535f-4343-a778-bee1f84f983c",
+          "name": "Get Domain Ratelimits",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "GET",
+          "description": "Using this endpoint you can get the ratelimits for a certain mailbox. You can use all for all mailboxes.",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "data": [],
+          "rawModeData": "",
+          "pathVariables": {
+            "domain": ""
+          },
+          "url": "{{HOST}}/api/v1/get/rl-domain/:domain/api/v1/get/rl-domain/:domain",
+          "pathVariableData": [
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain or all"
+            },
+            {
+              "key": "domain",
+              "value": "",
+              "description": "name of domain or all"
+            }
+          ],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "bd4219f8-c10f-4b32-87fd-35919ebe0c40",
+          "name": "Edit Domain Ratelimits",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can edit the ratelimit of one or multiple domains",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n  {\n    \"attr\":\n      {\n        \"rl_vlaue\": \"10\",\n        \"rl_frame\": \"h\"\n      },\n    \"items\": [\"domain.tld\"]\n  }\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/rl-domain//api/v1/edit/rl-domain",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "07b89f95-800f-4014-abf1-09a6e92885a7",
+          "name": "Edit Mailbox Ratelimits",
+          "collectionId": "5b4bad99-7805-4766-862b-14eed7aed186",
+          "method": "POST",
+          "description": "Using this endpoint you can edit the ratelimit of one or multiple mailboxes",
+          "headers": "Content-Type: application/json\nX-API-Key: api-key-string\nAccept: application/json",
+          "dataMode": "raw",
+          "data": [],
+          "rawModeData": "[\n  {\n    \"attr\":\n      {\n        \"rl_vlaue\": \"10\",\n        \"rl_frame\": \"h\"\n      },\n    \"items\": [\"info@domain.tld\"]\n  }\n]",
+          "pathVariables": {},
+          "url": "{{HOST}}/api/v1/edit/rl-mbox//api/v1/edit/rl-mbox",
+          "pathVariableData": [],
+          "queryParams": [],
+          "headerData": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-API-Key",
+              "value": "api-key-string"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "id": "5845c8fca64f260e18073f5ac8b587c6344047d9",
+      "name": "mailcow API",
+      "timestamp": 1714916490279,
+      "synced": false,
+      "values": [
+        {
+          "name": "HOST",
+          "key": "HOST",
+          "value": "https://mailcow.host/",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

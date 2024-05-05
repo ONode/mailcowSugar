@@ -7,7 +7,7 @@
 main_exe.py
 /jslab/node_modules
 /research/node_modules
-/assets
+/assets/resources.json
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 
 # Logs
