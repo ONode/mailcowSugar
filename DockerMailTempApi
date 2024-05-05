@@ -1,0 +1,28 @@
+# build stage
+FROM oven/bun:latest as bun_dep
+FROM nikolaik/python-nodejs:python3.11-nodejs21-slim
+
+
+
+RUN apt-get update
+RUN apt-get install -y build-essential --no-install-recommends
+RUN apt-get install -y wget vim bash-completion unzip git curl
+RUN apt-get install -y ca-certificates
+WORKDIR /opt/chrome
+RUN apt-get clean
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chrome
+COPY --from=bun_dep /usr/local/bin/bun /usr/bin/bun
+WORKDIR /home/galxe
+COPY requirements.txt .
+RUN pip install --index-url https://pypi.tuna.tsinghua.edu.cn/simple certifi selenium bs4 oauth2client webdriver_manager sentry-sdk
+RUN update-ca-certificates
+RUN pip install --index-url https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir -r requirements.txt
+RUN pip uninstall opencv-python -y
+RUN pip install --index-url https://pypi.tuna.tsinghua.edu.cn/simple opencv-python-headless
+COPY . .
+VOLUME /home/galxe
+WORKDIR /home/galxe/jslab
+RUN bun install
+
+WORKDIR /home/galxe
+CMD ["python", "main_exe.py"]
