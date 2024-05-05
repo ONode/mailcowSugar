@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask import request
 
 from lib.com.u1 import NameUtil, readconf
-from lib.const import LocalConf, Errors
+from lib.const import LocalConf, Errors, logger_swagger_mail
 
 app = Flask(__name__)
 
@@ -84,6 +84,7 @@ def append_new_mail_box():
                         return jsonify(base)
 
             if action.get("type") == "danger":
+                logger_swagger_mail.info("failed to create new email")
                 return jsonify(Errors.EXISTING_EMAIL)
 
     return jsonify(Errors.UNKNOWN_ERR)

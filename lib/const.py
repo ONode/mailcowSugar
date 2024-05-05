@@ -24,3 +24,10 @@ class Errors:
     SUCCESS_ACTION: dict = {
         "msg": "success"
     }
+
+
+import logging
+
+logger_swagger_mail = logging.getLogger("swagger mailcow")
+logger_swagger_mail.setLevel(logging.ERROR)
+
